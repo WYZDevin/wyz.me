@@ -1,3 +1,5 @@
+/* Import light theme */
+@import './theme.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,14 +8,14 @@
   .article-link {
     text-decoration: underline;
     text-underline-offset: 1.5px;
-    text-decoration-color: theme(colors.zinc.600) !important;
+    text-decoration-color: var(--border-medium) !important;
     text-decoration-thickness: 2px !important;
     transition: text-underline-offset 0.15s ease-out;
   }
 
   .article-link:hover {
     text-underline-offset: 2px !important;
-    text-decoration-color: theme(colors.zinc.400) !important;
+    text-decoration-color: var(--accent-primary) !important;
   }
 
   .bg-primary-gradient {
@@ -59,7 +61,7 @@
 
   .scrollbar-color {
     scrollbar-width: thin;
-    scrollbar-color: theme(colors.zinc.400) theme(colors.zinc.900);
+    scrollbar-color: var(--border-heavy) var(--bg-secondary);
   }
 
   .text-primary-gradient {
@@ -69,18 +71,11 @@
   }
 }
 
-:root {
-  --accent-color-1: #00df73;
-  --accent-color-2: #01fedc;
-  --accent-gradient-color: linear-gradient(
-    90deg,
-    var(--accent-color-1),
-    var(--accent-color-2)
-  );
-}
+/* Legacy color variables - replaced by theme.css */
 
 :focus-visible {
-  @apply outline outline-2 outline-offset-2 outline-emerald-300;
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
 }
 
 @keyframes fade-in-bottom {
@@ -106,8 +101,8 @@
 }
 
 .tooltip-content {
-  --tooltip-color: theme('colors.zinc.900');
-  --tooltip-border-color: theme('colors.zinc.700');
+  --tooltip-color: var(--bg-elevated);
+  --tooltip-border-color: var(--border-medium);
 }
 
 [data-side='top'] svg {
@@ -132,4 +127,26 @@
   left: -20.25px;
   top: 50%;
   transform: translateY(-50%) rotate(90deg);
+}
+
+@theme inline {
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+ 
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
 }

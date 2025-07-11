@@ -1,170 +1,173 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  // darkMode: ['class'],
-  darkMode: 'selector',
-  content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-    './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'
-  ],
-  prefix: '',
+export default {
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
-    container: {
-      center: 'true',
-      padding: '2rem',
-      screens: {
-        '2xl': '1400px'
-      }
-    },
     extend: {
-      typography: (theme) => ({
-        DEFAULT: {
-          css: {
-            lineHeight: '1.8',
-            fontWeight: '300',
-            color: theme('colors.zinc.400'),
-            letterSpacing: theme('letterSpacing.wide'),
-            a: {
-              fontWeight: '400'
-            },
-            blockquote: {
-              fontWeight: '400',
-              quotes: 'none'
-            },
-            strong: {
-              fontWeight: '400'
-            },
-            pre: {
-              letterSpacing: '0'
-            }
-          }
-        },
-        sm: {
-          css: {
-            fontWeight: '400',
-            fontSize: '0.95rem',
-            strong: {
-              fontWeight: '500'
-            }
-          }
-        }
-      }),
-      borderWidth: {
-        5: '5px',
-        6: '6px'
-      },
       colors: {
-        shark: {
-          50: '#f6f8f9',
-          100: '#ebeff3',
-          200: '#d3dce4',
-          300: '#adbecc',
-          400: '#819baf',
-          500: '#617f96',
-          600: '#4d667c',
-          700: '#3f5365',
-          800: '#374755',
-          900: '#313d49',
-          950: '#232b34'
+        // Primary (Amber/Yellow) palette
+        primary: {
+          50: 'var(--primary-50)',
+          100: 'var(--primary-100)',
+          200: 'var(--primary-200)',
+          300: 'var(--primary-300)',
+          400: 'var(--primary-400)',
+          500: 'var(--primary-500)',
+          600: 'var(--primary-600)',
+          700: 'var(--primary-700)',
+          800: 'var(--primary-800)',
+          900: 'var(--primary-900)',
+        },
+        // Accent (Pink) palette
+        accent: {
+          50: 'var(--accent-50)',
+          100: 'var(--accent-100)',
+          200: 'var(--accent-200)',
+          300: 'var(--accent-300)',
+          400: 'var(--accent-400)',
+          500: 'var(--accent-500)',
+          600: 'var(--accent-600)',
+          700: 'var(--accent-700)',
+          800: 'var(--accent-800)',
+          900: 'var(--accent-900)',
+        },
+        // Neutral palette
+        neutral: {
+          50: 'var(--neutral-50)',
+          100: 'var(--neutral-100)',
+          200: 'var(--neutral-200)',
+          300: 'var(--neutral-300)',
+          400: 'var(--neutral-400)',
+          500: 'var(--neutral-500)',
+          600: 'var(--neutral-600)',
+          700: 'var(--neutral-700)',
+          800: 'var(--neutral-800)',
+          900: 'var(--neutral-900)',
+        },
+        // Semantic colors
+        success: {
+          50: 'var(--success-50)',
+          100: 'var(--success-100)',
+          500: 'var(--success-500)',
+          600: 'var(--success-600)',
+        },
+        warning: {
+          50: 'var(--warning-50)',
+          100: 'var(--warning-100)',
+          500: 'var(--warning-500)',
+          600: 'var(--warning-600)',
+        },
+        error: {
+          50: 'var(--error-50)',
+          100: 'var(--error-100)',
+          500: 'var(--error-500)',
+          600: 'var(--error-600)',
+        },
+        // Theme semantic colors
+        theme: {
+          primary: 'var(--bg-primary)',
+          secondary: 'var(--bg-secondary)',
+          tertiary: 'var(--bg-tertiary)',
+          elevated: 'var(--bg-elevated)',
         }
       },
-      fontFamily: {
-        sans: ['Switzer', 'sans'],
-        mono: ['"DM Mono"', 'monospace'],
-        secondary: [
-          '"Fustat SemiBold", sans',
-          {
-            // fontFeatureSettings: '"ss03"'
-          }
-        ]
-      },
-      screens: {
-        xs: '480px'
-      },
-      transitionDuration: {
-        400: '400ms',
-        500: '500ms',
-        600: '600ms',
-        800: '800ms',
-        900: '900ms'
-      },
-      keyframes: {
-        'accordion-down': {
-          from: {
-            height: '0'
-          },
-          to: {
-            height: 'var(--radix-accordion-content-height)'
-          }
-        },
-        'accordion-up': {
-          from: {
-            height: 'var(--radix-accordion-content-height)'
-          },
-          to: {
-            height: '0'
-          }
-        },
-        gradient: {
-          to: {
-            backgroundPosition: 'var(--bg-size) 0'
-          }
-        },
-        marquee: {
-          from: {
-            transform: 'translateX(0)'
-          },
-          to: {
-            transform: 'translateX(calc(-100% - var(--gap)))'
-          }
-        },
-        'marquee-vertical': {
-          from: {
-            transform: 'translateY(0)'
-          },
-          to: {
-            transform: 'translateY(calc(-100% - var(--gap)))'
-          }
-        },
-        hide: {
-          from: { opacity: '1' },
-          to: { opacity: '0' }
-        },
-        slideDownAndFade: {
-          from: { opacity: '0', transform: 'translateY(-6px)' },
-          to: { opacity: '1', transform: 'translateY(0)' }
-        },
-        slideLeftAndFade: {
-          from: { opacity: '0', transform: 'translateX(6px)' },
-          to: { opacity: '1', transform: 'translateX(0)' }
-        },
-        slideUpAndFade: {
-          from: { opacity: '0', transform: 'translateY(6px)' },
-          to: { opacity: '1', transform: 'translateY(0)' }
-        },
-        slideRightAndFade: {
-          from: { opacity: '0', transform: 'translateX(-6px)' },
-          to: { opacity: '1', transform: 'translateX(0)' }
+      textColor: {
+        theme: {
+          primary: 'var(--text-primary)',
+          secondary: 'var(--text-secondary)',
+          tertiary: 'var(--text-tertiary)',
+          inverse: 'var(--text-inverse)',
         }
+      },
+      borderColor: {
+        theme: {
+          light: 'var(--border-light)',
+          medium: 'var(--border-medium)',
+          heavy: 'var(--border-heavy)',
+        }
+      },
+      boxShadow: {
+        theme: {
+          sm: 'var(--shadow-sm)',
+          md: 'var(--shadow-md)',
+          lg: 'var(--shadow-lg)',
+          xl: 'var(--shadow-xl)',
+        }
+      },
+      backgroundImage: {
+        'gradient-primary': 'var(--gradient-primary)',
+        'gradient-accent': 'var(--gradient-accent)',
+        'gradient-warm': 'var(--gradient-warm)',
+        'gradient-cool': 'var(--gradient-cool)',
       },
       animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
-        gradient: 'gradient 8s linear infinite',
-        marquee: 'marquee var(--duration) infinite linear',
-        'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
-        hide: 'hide 150ms cubic-bezier(0.16, 1, 0.3, 1)',
-        slideDownAndFade:
-          'slideDownAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1)',
-        slideLeftAndFade:
-          'slideLeftAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1)',
-        slideUpAndFade: 'slideUpAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1)',
-        slideRightAndFade:
-          'slideRightAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1)'
-      }
-    }
+        'fade-in-bottom': 'fade-in-bottom 0.6s ease-out forwards',
+        'bounce-gentle': 'bounce 2s infinite',
+      },
+      fontFamily: {
+        primary: [
+          'Inter',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
+          'sans-serif'
+        ],
+        secondary: [
+          'Geist',
+          'Inter',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
+          'sans-serif'
+        ],
+        mono: [
+          'Geist Mono',
+          'JetBrains Mono',
+          'Fira Code',
+          'Monaco',
+          'Consolas',
+          'monospace'
+        ]
+      },
+      container: {
+        center: true,
+        padding: '2rem',
+        screens: {
+          '2xl': '1400px',
+        },
+      },
+    },
   },
-  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')]
+  plugins: [
+    // Add any custom plugins here
+    function({ addUtilities }) {
+      addUtilities({
+        '.theme-card': {
+          backgroundColor: 'var(--card-bg)',
+          border: '1px solid var(--card-border)',
+          boxShadow: 'var(--card-shadow)',
+          transition: 'all 0.3s ease',
+        },
+        '.theme-card:hover': {
+          boxShadow: 'var(--card-hover-shadow)',
+          transform: 'translateY(-2px)',
+        },
+        '.accent-primary': {
+          color: 'var(--accent-primary)',
+        },
+        '.accent-secondary': {
+          color: 'var(--accent-secondary)',
+        },
+        '.bg-accent-primary': {
+          backgroundColor: 'var(--accent-primary)',
+        },
+        '.bg-accent-secondary': {
+          backgroundColor: 'var(--accent-secondary)',
+        },
+      })
+    }
+  ],
 }

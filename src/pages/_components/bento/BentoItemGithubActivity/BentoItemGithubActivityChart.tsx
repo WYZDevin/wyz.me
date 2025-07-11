@@ -57,20 +57,20 @@ const BentoGithubActivity = (props: Props) => {
           monthLabels={false}
           legendCellSize={0}
           space={4}
-          style={{ color: '#fff' }}
+          style={{ color: 'var(--text-primary)' }}
           rectProps={{ rx: 4 }}
           rectSize={16}
           rectRender={renderRect((date) => setHoveredTile(date))}
           panelColors={{
-            1: '#19222F',
-            4: '#0F4E43',
-            8: '#1F977B',
-            12: '#1EF4AE'
+            1: '#fef3c7',
+            4: '#fbbf24',
+            8: '#f59e0b',
+            12: '#d97706'
           }}
         />
       </div>
       {
-        <p className='text-sm text-slate-200 max-sm:text-xs sm:max-lg:mt-4'>
+        <p className='text-sm text-theme-secondary max-sm:text-xs sm:max-lg:mt-4'>
           Last pushed on {formatDate(new Date(props.lastPushedAt))}
         </p>
       }

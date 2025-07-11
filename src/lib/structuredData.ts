@@ -7,7 +7,7 @@ export const mainWebsite: WithContext<WebSite> = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   url: import.meta.env.SITE,
-  name: 'Jesica - Personal Website',
+  name: '@Devin Yongzhao Wu',
   description:
     'From Figma to TypeScript, I craft seamless web and mobile experiences as a software engineer, based in Jakarta, Indonesia.',
   inLanguage: 'en_US'

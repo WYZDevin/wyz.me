@@ -60,7 +60,7 @@ const generateHtml = (data: AllCollectionEntry['data']): ReactElement => {
                       type: 'div',
                       props: {
                         tw: 'mr-5',
-                        children: 'Jesica'
+                        children: 'Devin'
                       }
                     },
                     {
@@ -74,7 +74,7 @@ const generateHtml = (data: AllCollectionEntry['data']): ReactElement => {
                       type: 'div',
                       props: {
                         tw: 'mr-5',
-                        children: 'jestsee.com'
+                        children: 'wyz.me'
                       }
                     }
                   ]

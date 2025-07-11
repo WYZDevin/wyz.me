@@ -2269,11 +2269,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 24.0.12
-  resolution: "@types/node@npm:24.0.12"
+  version: 24.0.13
+  resolution: "@types/node@npm:24.0.13"
   dependencies:
     undici-types: "npm:~7.8.0"
-  checksum: 10c0/333777c3416b758bbdb72a09e9db5599ff7789dca519d3fcf8150a1c56c79d808e0009e92d52016e80033b3c52724def08aad2c5b396e28f00dbdfe40a1756a4
+  checksum: 10c0/e1f3d4ea8973b1f2f987814ac5343d05ad8b56bf7fa41755295dee0ce0f7b4e2de4f3daef5296429180228970cef0d70f2ad873c61dbafc6f5eeca9d023aba76
   languageName: node
   linkType: hard
 
@@ -2294,11 +2294,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:^22.0.0":
-  version: 22.16.2
-  resolution: "@types/node@npm:22.16.2"
+  version: 22.16.3
+  resolution: "@types/node@npm:22.16.3"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10c0/4b5e34ca73cceb2630ae2ca46cc8fe1173e0026edb24dcd203cb7cfa788f0bab84b0d8599c32aedbc506a519acc5027177ce8b47a4f63e4f7887808499fec6a3
+  checksum: 10c0/ea6829d0691713e216c15a767f87e412fa0f45c7ed4d49419098d967467e20a5dcdf66fee024e314deab2779f7e5282e1839ee918e845be27f14179247ec947a
   languageName: node
   linkType: hard
 
@@ -4067,9 +4067,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.5.173":
-  version: 1.5.181
-  resolution: "electron-to-chromium@npm:1.5.181"
-  checksum: 10c0/9d4d2fbbcabe604348462c1df37c744615c3f1439eeb66dc12fd9e25ea4422dbafd20dd15f4a78106ad5aff9168f751ee2e62347ae36c1d7dd9dea61b325e98e
+  version: 1.5.182
+  resolution: "electron-to-chromium@npm:1.5.182"
+  checksum: 10c0/45d45a2d5d304547818574ca083e739e5099bab650b655329a1a39ff2aaa2bf8ba2114c8fc13b5d96014233181d87ec8f84a48d976c5b91140036ceb587bb8e5
   languageName: node
   linkType: hard
 
@@ -6069,76 +6069,6 @@ __metadata:
   checksum: 10c0/6acc10d139eaefdbe04d2f679e6191b3abf073f111edf10b1de5302c97ec93fffeb2fdd8681ed17f16268aa9dd4f8c588ed9d1d3bffbbfa6e8bf897cbb3149b9
   languageName: node
   linkType: hard
-
-"jestsee.com@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "jestsee.com@workspace:."
-  dependencies:
-    "@astrojs/check": "npm:^0.9.4"
-    "@astrojs/mdx": "npm:^4.0.2"
-    "@astrojs/node": "npm:^9.0.0"
-    "@astrojs/partytown": "npm:^2.1.2"
-    "@astrojs/react": "npm:^4.1.0"
-    "@astrojs/rss": "npm:^4.0.10"
-    "@astrojs/sitemap": "npm:^3.2.1"
-    "@astrojs/tailwind": "npm:^5.1.3"
-    "@astrojs/vercel": "npm:^8.0.0"
-    "@babel/runtime": "npm:^7.27.6"
-    "@hono/zod-validator": "npm:^0.4.1"
-    "@playform/compress": "npm:^0.1.6"
-    "@radix-ui/react-separator": "npm:^1.1.1"
-    "@radix-ui/react-slot": "npm:^1.1.1"
-    "@radix-ui/react-tooltip": "npm:^1.1.5"
-    "@tailwindcss/typography": "npm:^0.5.15"
-    "@types/leaflet": "npm:^1.9.15"
-    "@types/react": "npm:^19.0.1"
-    "@types/react-dom": "npm:^19.0.2"
-    "@typescript-eslint/parser": "npm:^8.18.0"
-    "@uiw/react-heat-map": "npm:^2.3.1"
-    "@vercel/analytics": "npm:^1.4.1"
-    "@vercel/og": "npm:^0.6.4"
-    "@vis.gl/react-google-maps": "npm:^1.4.2"
-    astro: "npm:^5.0.5"
-    astro-font: "npm:^0.1.81"
-    astro-seo: "npm:^0.8.4"
-    class-variance-authority: "npm:^0.7.1"
-    clsx: "npm:^2.1.1"
-    dayjs: "npm:^1.11.13"
-    eslint: "npm:^9.16.0"
-    eslint-plugin-astro: "npm:^1.3.1"
-    eslint-plugin-jsx-a11y: "npm:^6.10.2"
-    eslint-plugin-mdx: "npm:^3.1.5"
-    eslint-plugin-simple-import-sort: "npm:^12.1.1"
-    framer-motion: "npm:^11.14.1"
-    graphql: "npm:^16.9.0"
-    graphql-request: "npm:^7.1.2"
-    hono: "npm:^4.6.13"
-    leaflet: "npm:^1.9.4"
-    markdown-it: "npm:^14.1.0"
-    markdown-to-jsx: "npm:^7.7.1"
-    open-graph-scraper: "npm:^6.8.3"
-    prettier: "npm:^3.4.2"
-    prettier-config-standard: "npm:^7.0.0"
-    prettier-plugin-astro: "npm:^0.14.1"
-    prettier-plugin-tailwindcss: "npm:^0.6.9"
-    query-string: "npm:^9.1.1"
-    react: "npm:^19.0.0"
-    react-dom: "npm:^19.0.0"
-    react-leaflet: "npm:^4.2.1"
-    react-tweet: "npm:^3.2.1"
-    reading-time: "npm:^1.5.0"
-    rehype-autolink-headings: "npm:^7.1.0"
-    rehype-slug: "npm:^6.0.0"
-    sanitize-html: "npm:^2.13.1"
-    schema-dts: "npm:^1.1.2"
-    sharp: "npm:^0.33.5"
-    swr: "npm:^2.2.5"
-    tailwind-merge: "npm:^2.5.5"
-    tailwindcss: "npm:^3.4.16"
-    tailwindcss-animate: "npm:^1.0.7"
-    typescript: "npm:^5.7.2"
-  languageName: unknown
-  linkType: soft
 
 "jiti@npm:^1.21.6":
   version: 1.21.7
@@ -9487,12 +9417,12 @@ __metadata:
   linkType: hard
 
 "socks@npm:^2.8.3":
-  version: 2.8.5
-  resolution: "socks@npm:2.8.5"
+  version: 2.8.6
+  resolution: "socks@npm:2.8.6"
   dependencies:
     ip-address: "npm:^9.0.5"
     smart-buffer: "npm:^4.2.0"
-  checksum: 10c0/e427d0eb0451cfd04e20b9156ea8c0e9b5e38a8d70f21e55c30fbe4214eda37cfc25d782c63f9adc5fbdad6d062a0f127ef2cefc9a44b6fee2b9ea5d1ed10827
+  checksum: 10c0/15b95db4caa359c80bfa880ff3e58f3191b9ffa4313570e501a60ee7575f51e4be664a296f4ee5c2c40544da179db6140be53433ce41ec745f9d51f342557514
   languageName: node
   linkType: hard
 
@@ -9879,14 +9809,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwind-merge@npm:^2.5.5":
-  version: 2.6.0
-  resolution: "tailwind-merge@npm:2.6.0"
-  checksum: 10c0/fc8a5535524de9f4dacf1c16ab298581c7bb757d68a95faaf28942b1c555a619bba9d4c6726fe83986e44973b315410c1a5226e5354c30ba82353bd6d2288fa5
+"tailwind-merge@npm:2.5.5":
+  version: 2.5.5
+  resolution: "tailwind-merge@npm:2.5.5"
+  checksum: 10c0/32614dd2b4ddd4fab070d5ec569e6da00e2b34269b9ac2f2ff16733cef29a076c8e2210fbfc1904d7983a8fdb6b3e63d18ca117645f21b12ca7bcf8fe3507241
   languageName: node
   linkType: hard
 
-"tailwindcss-animate@npm:^1.0.7":
+"tailwindcss-animate@npm:1.0.7":
   version: 1.0.7
   resolution: "tailwindcss-animate@npm:1.0.7"
   peerDependencies:
@@ -9895,9 +9825,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^3.4.16":
-  version: 3.4.17
-  resolution: "tailwindcss@npm:3.4.17"
+"tailwindcss@npm:3.4.16":
+  version: 3.4.16
+  resolution: "tailwindcss@npm:3.4.16"
   dependencies:
     "@alloc/quick-lru": "npm:^5.2.0"
     arg: "npm:^5.0.2"
@@ -9924,7 +9854,7 @@ __metadata:
   bin:
     tailwind: lib/cli.js
     tailwindcss: lib/cli.js
-  checksum: 10c0/cc42c6e7fdf88a5507a0d7fea37f1b4122bec158977f8c017b2ae6828741f9e6f8cb90282c6bf2bd5951fd1220a53e0a50ca58f5c1c00eb7f5d9f8b80dc4523c
+  checksum: 10c0/f716ff38e0ea6f25c2b3d811e0aaac07f627193e8527d8ad945d5088d4a188ac1eb1e8ee9aef76d8525e756ffbb8369d717013d3ffc2f49fabaa94cb1e6784c1
   languageName: node
   linkType: hard
 
@@ -11191,6 +11121,76 @@ __metadata:
   checksum: 10c0/a139b818da9573677548dd463bd626a5a5286271211eb6e4e82f34a4f643191d74e6d4a9bb0a3c26ec90e6f904f679e0569674ac099ea12378a8b98e20706066
   languageName: node
   linkType: hard
+
+"wyz.me@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "wyz.me@workspace:."
+  dependencies:
+    "@astrojs/check": "npm:^0.9.4"
+    "@astrojs/mdx": "npm:^4.0.2"
+    "@astrojs/node": "npm:^9.0.0"
+    "@astrojs/partytown": "npm:^2.1.2"
+    "@astrojs/react": "npm:^4.1.0"
+    "@astrojs/rss": "npm:^4.0.10"
+    "@astrojs/sitemap": "npm:^3.2.1"
+    "@astrojs/tailwind": "npm:^5.1.3"
+    "@astrojs/vercel": "npm:^8.0.0"
+    "@babel/runtime": "npm:^7.27.6"
+    "@hono/zod-validator": "npm:^0.4.1"
+    "@playform/compress": "npm:^0.1.6"
+    "@radix-ui/react-separator": "npm:^1.1.1"
+    "@radix-ui/react-slot": "npm:^1.1.1"
+    "@radix-ui/react-tooltip": "npm:^1.1.5"
+    "@tailwindcss/typography": "npm:^0.5.15"
+    "@types/leaflet": "npm:^1.9.15"
+    "@types/react": "npm:^19.0.1"
+    "@types/react-dom": "npm:^19.0.2"
+    "@typescript-eslint/parser": "npm:^8.18.0"
+    "@uiw/react-heat-map": "npm:^2.3.1"
+    "@vercel/analytics": "npm:^1.4.1"
+    "@vercel/og": "npm:^0.6.4"
+    "@vis.gl/react-google-maps": "npm:^1.4.2"
+    astro: "npm:^5.0.5"
+    astro-font: "npm:^0.1.81"
+    astro-seo: "npm:^0.8.4"
+    class-variance-authority: "npm:^0.7.1"
+    clsx: "npm:^2.1.1"
+    dayjs: "npm:^1.11.13"
+    eslint: "npm:^9.16.0"
+    eslint-plugin-astro: "npm:^1.3.1"
+    eslint-plugin-jsx-a11y: "npm:^6.10.2"
+    eslint-plugin-mdx: "npm:^3.1.5"
+    eslint-plugin-simple-import-sort: "npm:^12.1.1"
+    framer-motion: "npm:^11.14.1"
+    graphql: "npm:^16.9.0"
+    graphql-request: "npm:^7.1.2"
+    hono: "npm:^4.6.13"
+    leaflet: "npm:^1.9.4"
+    markdown-it: "npm:^14.1.0"
+    markdown-to-jsx: "npm:^7.7.1"
+    open-graph-scraper: "npm:^6.8.3"
+    prettier: "npm:^3.4.2"
+    prettier-config-standard: "npm:^7.0.0"
+    prettier-plugin-astro: "npm:^0.14.1"
+    prettier-plugin-tailwindcss: "npm:^0.6.9"
+    query-string: "npm:^9.1.1"
+    react: "npm:^19.0.0"
+    react-dom: "npm:^19.0.0"
+    react-leaflet: "npm:^4.2.1"
+    react-tweet: "npm:^3.2.1"
+    reading-time: "npm:^1.5.0"
+    rehype-autolink-headings: "npm:^7.1.0"
+    rehype-slug: "npm:^6.0.0"
+    sanitize-html: "npm:^2.13.1"
+    schema-dts: "npm:^1.1.2"
+    sharp: "npm:^0.33.5"
+    swr: "npm:^2.2.5"
+    tailwind-merge: "npm:2.5.5"
+    tailwindcss: "npm:3.4.16"
+    tailwindcss-animate: "npm:1.0.7"
+    typescript: "npm:^5.7.2"
+  languageName: unknown
+  linkType: soft
 
 "xxhash-wasm@npm:^1.1.0":
   version: 1.1.0

@@ -30,20 +30,8 @@ const techStacks: TechStack[] = [
       'TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.'
   },
   {
-    name: 'Next',
-    icon: NextJs,
-    description:
-      'TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.'
-  },
-  {
-    name: 'React Native',
+    name: 'React',
     icon: ReactJs,
-    description:
-      'TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.'
-  },
-  {
-    name: 'React Query',
-    icon: Reactquery,
     description:
       'TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.'
   },
@@ -59,12 +47,7 @@ const techStacks: TechStack[] = [
     description:
       'TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.'
   },
-  {
-    name: 'Puppeteer',
-    icon: Puppeteer,
-    description:
-      'TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.'
-  },
+
   {
     name: 'Jest',
     icon: Jest,
@@ -78,18 +61,6 @@ const techStacks: TechStack[] = [
       'TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.'
   },
   {
-    name: 'Drizzle',
-    icon: Drizzle,
-    description:
-      'TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.'
-  },
-  {
-    name: 'Nest',
-    icon: Nestjs,
-    description:
-      'TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.'
-  },
-  {
     name: 'Hono',
     icon: Hono,
     description:
@@ -98,18 +69,6 @@ const techStacks: TechStack[] = [
   {
     name: 'Astro',
     icon: Astro,
-    description:
-      'TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.'
-  },
-  {
-    name: 'Vue',
-    icon: Vuejs,
-    description:
-      'TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.'
-  },
-  {
-    name: 'Nuxt',
-    icon: Nuxtjs,
     description:
       'TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.'
   },

@@ -7,19 +7,19 @@ import Keyboard from '../_components/Keyboard.astro'
     class:list={[
       'flex w-fit items-center rounded-full',
       'gap-3 py-1.5 pl-3 pr-4',
-      'border border-zinc-600/75',
-      'bg-slate-950/25',
+              'border-2 border-theme-heavy shadow-md',
+      'bg-white/25',
       'enter-animation'
     ]}
   >
     <div class='relative size-3'>
       <div
-        class='absolute size-full animate-ping rounded-full bg-green-300 opacity-65'
+        class='absolute size-full animate-ping rounded-full bg-primary-300 opacity-65'
       >
       </div>
-      <div class='drop-shadow-green size-full rounded-full bg-green-400'></div>
+      <div class='drop-shadow-primary size-full rounded-full bg-primary-400'></div>
     </div>
-    <h3 class='text-sm text-slate-200 max-xs:text-xs'>
+    <h3 class='text-sm text-theme-secondary max-xs:text-xs'>
       Open to work and academic collaborations
     </h3>
   </div>
@@ -31,10 +31,15 @@ import Keyboard from '../_components/Keyboard.astro'
     </h1>
     <div>
       <h2
-        class='enter-animation mb-4 max-w-xl leading-relaxed text-slate-400 max-sm:text-sm'
+        class='enter-animation mb-4 max-w-xl leading-relaxed text-theme-secondary max-sm:text-sm'
       >
-        A PhD Student @ University of Toronto. <br />
-        Research focus on GeoAI and environmental noise modeling.
+        A PhD Student (in Geography) @ University of Toronto. <br />
+      </h2>
+
+      <h2
+        class='enter-animation mb-4 max-w-xl leading-relaxed text-theme-secondary max-sm:text-sm'
+      >
+        And a Full Stack Developer. <br />
       </h2>
       
     </div>
@@ -47,8 +52,8 @@ import Keyboard from '../_components/Keyboard.astro'
 </section>
 
 <style is:global>
-  .drop-shadow-green {
-    filter: drop-shadow(0px 0px 8px #59ff7e);
+  .drop-shadow-primary {
+    filter: drop-shadow(0px 0px 8px #fbbf24);
   }
 
   .enter-animation {

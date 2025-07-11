@@ -61,7 +61,7 @@
   border-radius: 100px;
   pointer-events: none;
   overflow: hidden;
-  border: 1px solid theme(colors.shark.950);
+      border: 1px solid var(--border-heavy);
   z-index: 999999999;
 }
 

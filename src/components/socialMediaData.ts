@@ -15,11 +15,6 @@ export const SOCIAL_MEDIA_DATA = [
     icon: LinkedIn,
     href: 'https://www.linkedin.com/in/devin-yongzhao-wu/'
   },
-  // {
-  //   name: 'Resume',
-  //   icon: Scroll,
-  //   href: 'https://read.cv/jestsee'
-  // },
   {
     name: 'Email',
     icon: Mail,

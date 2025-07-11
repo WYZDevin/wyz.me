@@ -1,10 +1,11 @@
 ---
-import { Codepen } from '@icons/Codepen'
-import { Figma } from '@icons/Figma'
-import { Location } from '@icons/Location'
-import { X } from '@icons/X'
+import { Location } from '@/components/icons/Location'
+import { X } from '@/components/icons/X'
+import { Figma } from '@/components/icons/Figma'
+import { Codepen } from '@/components/icons/Codepen'
 
 import { cn } from '@/lib/utils'
+import ProjectSection from './ProjectSection.astro'
 
 import BentoBadge from './bento/BentoBadge'
 import BentoCard from './bento/BentoCard'
@@ -12,6 +13,7 @@ import BentoItemCTA from './bento/BentoItemCTA'
 import BentoItemFeaturedWork from './bento/BentoItemFeaturedWork'
 import BentoItemGithubActivity from './bento/BentoItemGithubActivity'
 import BentoItemTechStack from './bento/BentoItemTechStack'
+import BentoItemTimeline from './bento/BentoItemTimeline/BentoItemTimeline.astro'
 // TODO: Change this to my social media
 const socialMedias = [
   { icon: X, href: 'https://twitter.com/jestseee' },
@@ -46,26 +48,23 @@ const socialMedias = [
     'flex-col max-lg:grid-cols-6 max-md:flex max-md:gap-4 md:grid'
   ]}
 >
-  <!-- Location & social medias -->
-  <div
-    class:list={[
-      'relative col-start-1 col-end-11 row-start-1 row-end-[8] aspect-square',
-      'max-lg:col-end-3 max-lg:row-end-3'
-    ]}
-  >
-    <BentoBadge
-      className={{ component: 'absolute left-4 top-4' }}
-      text='Location'
-      icon={Location}
-    />
-    <!-- <BentoItemMapLocation className='rounded-3xl' client:only='react' /> -->
-  </div>
 
+  <!-- Timeline -->
+  <BentoCard
+    className={cn(
+      'col-start-1 col-end-[37] row-start-1 row-end-[7]',
+      'max-lg:col-start-1 max-lg:col-end-7 max-lg:row-start-1 max-lg:row-end-4'
+    )}
+  >
+    <BentoItemTimeline />
+  </BentoCard>
+
+  <!-- Social medias -->
   <div
     class:list={[
       'grid grid-cols-3 gap-4',
-      'col-start-1 col-end-11 row-start-[7] row-end-[9]',
-      'max-lg:col-end-4 max-lg:row-start-3 max-lg:row-end-4'
+      'col-start-1 col-end-11 row-start-7 row-end-[9]',
+      'max-lg:col-start-1 max-lg:col-end-4 max-lg:row-start-4 max-lg:row-end-5'
     ]}
   >
     {
@@ -75,7 +74,7 @@ const socialMedias = [
             href={href}
             aria-label='Social media'
             target='_blank'
-            class='flex size-full items-center justify-center rounded-3xl group-hover:text-emerald-400'
+            class='flex size-full items-center justify-center rounded-3xl group-hover:text-accent-primary'
           >
             <Icon className='size-10' />
           </a>
@@ -84,57 +83,45 @@ const socialMedias = [
     }
   </div>
 
-  <!-- Works -->
+  <!-- CTA -->
   <BentoCard
     className={cn(
-      'col-start-11 col-end-[24] row-start-1 row-end-[7]',
-      'max-lg:col-start-3 max-lg:col-end-7 max-lg:row-end-3'
-    )}
-  >
-    <BentoItemFeaturedWork />
-  </BentoCard>
-
-  <BentoCard
-    className={cn(
-      'col-start-11 col-end-[24] row-start-[7] row-end-[9]',
-      'max-lg:col-start-4 max-lg:col-end-7 max-lg:row-start-3 max-lg:row-end-4'
+      'col-start-11 col-end-[37] row-start-7 row-end-[9]',
+      'max-lg:col-start-4 max-lg:col-end-7 max-lg:row-start-4 max-lg:row-end-5'
     )}
   >
     <BentoItemCTA />
   </BentoCard>
 
-  <!-- Spotify & Monkeytype -->
-
   <!-- Github activity & tech stack -->
   <BentoCard
     className={cn(
-      'col-start-1 col-end-[21] row-start-9 row-end-[15]',
-      'max-lg:col-start-1 max-lg:col-end-4 max-lg:row-start-6 max-lg:row-end-9'
+      'col-start-1 col-end-[21] row-start-9 row-end-[14]',
+      'max-lg:col-start-1 max-lg:col-end-4 max-lg:row-start-5 max-lg:row-end-8'
     )}
   >
-    <!-- TODO -->
-    <BentoItemGithubActivity server:defer>
-      <p class='p-4' slot='fallback'>Loading data...</p>
-    </BentoItemGithubActivity>
-
-    <!-- <BentoItemGithubActivity client:only='react' /> -->
-
+    <BentoItemGithubActivity />
   </BentoCard>
 
   <BentoCard
+    client:visible
     className={cn(
-      'col-start-[21] col-end-[37] row-start-9 row-end-[15]',
-      'max-lg:col-start-4 max-lg:col-end-7 max-lg:row-start-6 max-lg:row-end-9'
+      'col-start-[21] col-end-[37] row-start-9 row-end-[14]',
+      'max-lg:col-start-4 max-lg:col-end-7 max-lg:row-start-5 max-lg:row-end-8'
     )}
   >
     <BentoItemTechStack />
   </BentoCard>
+
+
+
+
 </section>
 
 <style is:global>
   #bento {
-    --card-border: theme(colors.slate.600);
-    --card-background: hsl(215, 26%, 7.5%);
+    --card-border: var(--border-medium);
+    --card-background: var(--bg-elevated);
 
     scroll-margin: 3rem;
   }
@@ -146,10 +133,11 @@ const socialMedias = [
 
   .card {
     /* border */
-    background-color: theme(colors.slate.800);
+    background-color: var(--border-medium);
     display: flex;
     flex-direction: column;
     position: relative;
+    box-shadow: var(--shadow-md);
   }
 
   .card:hover::before {
@@ -173,7 +161,7 @@ const socialMedias = [
   .card::before {
     background: radial-gradient(
       800px circle at var(--mouse-x) var(--mouse-y),
-      rgba(255, 255, 255, 0.06),
+      rgba(245, 158, 11, 0.08),
       transparent 40%
     );
     z-index: 3;
