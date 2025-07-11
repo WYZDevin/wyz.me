@@ -19,6 +19,7 @@ import { defineConfig, envField } from 'astro/config'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 // @ts-ignore
 import rehypeSlug from 'rehype-slug'
+import dotenv from 'dotenv'
 
 let adapter = vercel()
 
@@ -26,6 +27,8 @@ let adapter = vercel()
 if (process.argv[3] === '--node' || process.argv[4] === '--node') {
   adapter = node({ mode: 'standalone' })
 }
+
+dotenv.config()
 
 // https://astro.build/config
 export default defineConfig({

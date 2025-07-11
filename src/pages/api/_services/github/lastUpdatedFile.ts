@@ -1,4 +1,4 @@
-import { ACCESS_TOKEN } from 'astro:env/server'
+import { ACCESS_TOKEN, getSecret } from 'astro:env/server'
 
 interface LastUpdatedTimeData {
   lastUpdatedTime: string
@@ -15,9 +15,9 @@ const getLastUpdatedTimeByFile = async (
     path: `src/content/${filePath}`,
     per_page: '1'
   }).toString()
-
+  // console.log(getSecret('ACCESS_TOKEN'))
   const response = await fetch(API_URL + params, {
-    headers: { Authorization: `Bearer ${ACCESS_TOKEN}` }
+    headers: { Authorization: `Bearer ${getSecret('ACCESS_TOKEN')}` }
   })
 
   const [data] = await response.json()

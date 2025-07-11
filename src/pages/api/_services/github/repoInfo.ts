@@ -1,4 +1,5 @@
-import { ACCESS_TOKEN } from 'astro:env/server'
+import { ACCESS_TOKEN, getSecret } from 'astro:env/server'
+// Import every env variable from astro:env/server
 import request from 'graphql-request'
 
 import { GetRepoInfo } from '@/lib/graphql'
@@ -9,13 +10,13 @@ const getLastUpdatedTime = async (
   repository: string
 ): Promise<GithubRepositoryLastUpdated> => {
 
-
+  
   const response = await request({
     url: 'https://api.github.com/graphql',
     document: GetRepoInfo,
     variables: { username: owner, repositoryName: repository },
     requestHeaders: {
-      Authorization: `Bearer ${ACCESS_TOKEN}`
+      Authorization: `Bearer ${getSecret('ACCESS_TOKEN')}`
     }
   })
   return (response as any).repository
