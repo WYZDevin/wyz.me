@@ -16,7 +16,7 @@ import { formatDateByTimeZone } from '@/lib/utils'
 import BaseLayout from '../BaseLayout.astro'
 import Links from '../components/Links.astro'
 
-interface Props extends InferEntrySchema<'projects'> {
+interface Props extends InferEntrySchema<'publications'> {
   headings: MarkdownHeading[]
   slug: string
 }
@@ -35,10 +35,10 @@ const {
   links
 } = Astro.props
 
-const htmlTitle = _htmlTitle.replace(
+const htmlTitle = _htmlTitle ? _htmlTitle.replace(
   '\\n',
   "<br class='max-md:hidden' /><span class='md:hidden'>&nbsp;</span>"
-)
+) : title
 ---
 
 <BaseLayout class='!max-w-[1024px]'>
@@ -69,7 +69,7 @@ const htmlTitle = _htmlTitle.replace(
       {description}
     </h3>
     {
-      links.length > 0 && (
+      links && links.length > 0 && (
         <div class='mt-4 flex gap-4 max-sm:flex-col-reverse sm:mt-6 sm:items-center sm:justify-between'>
           <Links links={links} />
         </div>
@@ -123,14 +123,14 @@ const htmlTitle = _htmlTitle.replace(
       <MoreProjectCard {...Astro.props} />
     </div> -->
     <Link
-      href='/projects'
+      href='/academic/publications'
       class='!text-zinc-200 !no-underline'
       styled
       hoverStyled
       hoverEffectOffsetStart='24px'
     >
       <ArrowRight className='mr-2 inline-block size-4 -scale-x-100' />Explore
-      more projects</Link
+      more publications</Link
     >
   </section>
 </BaseLayout>

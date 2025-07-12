@@ -37,6 +37,7 @@ const BentoGithubActivity = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await client.api.github.contributions.$get()
+      console.log(response)
       if (response.status === 200) {
         const jsonData = await response.json()
         setData(jsonData)

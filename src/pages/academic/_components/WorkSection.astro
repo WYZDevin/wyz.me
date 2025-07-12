@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content'
+
+import FancyLink from '@/components/FancyLink.astro'
+import PublicationCard from '@/components/PublicationCard'
+import SectionHeader from '@/components/SectionHeader.astro'
+import { getCustomTransition } from '@/lib/customTransition'
+import { Briefcase } from '@/components/icons/Briefcase'
+
+const works = await getCollection('works')
+---
+
+<section id='works' class='mt-40 scroll-mt-16'>
+  <div class='items-center justify-between gap-4 lg:flex'>
+    <SectionHeader section='Works' icon={Briefcase} htmlTitle="Works" htmlDescription="Works" />
+    <FancyLink class='max-lg:hidden' href='/academic/works'
+      >View all works</FancyLink
+    >
+  </div>
+  <div
+    class='mt-12 grid gap-12 sm:grid-cols-2 lg:grid-cols-3'
+    transition:animate={getCustomTransition(0.2)}
+  >
+    {works.map(({ id, data }) => <PublicationCard slug={id} {...data} />)}
+  </div>
+</section>

@@ -2,6 +2,7 @@ import { zValidator } from '@hono/zod-validator'
 import type { APIRoute } from 'astro'
 import { z } from 'astro:schema'
 import { Hono } from 'hono'
+import { cors } from 'hono/cors'
 
 import github from './_services/github'
 import getLinkMetadata from './_services/linkMetadata'
@@ -10,6 +11,7 @@ import getTweetContent from './_services/tweetContent'
 
 const app = new Hono()
   .basePath('/api')
+  .use('*', cors())
   .onError((error, c) => {
     console.error('error occured >>', error)
     return c.json({ error: 'Something went wrong' }, 500)

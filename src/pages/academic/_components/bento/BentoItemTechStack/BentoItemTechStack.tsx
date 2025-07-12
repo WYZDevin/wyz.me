@@ -13,9 +13,14 @@ const BentoItemTechStack = () => {
       />
       <div className="flex-grow place-content-center">
         <div className="relative flex w-full flex-col items-center justify-center overflow-hidden md:shadow-xl">
-          <Marquee pauseOnHover className="[--duration:20s]">
+          <Marquee 
+            pauseOnHover 
+            style={{ "--duration": "20s" } as React.CSSProperties}
+          >
             {techStacks.map(({ icon: Icon, name }) => (
-              <Icon className="size-12 md:max-lg:size-8" key={name} />
+              <span key={name} className="inline-block px-4">
+                <Icon className="w-12 h-12 md:w-8 md:h-8" />
+              </span>
             ))}
           </Marquee>
           <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-[var(--card-background)]"></div>

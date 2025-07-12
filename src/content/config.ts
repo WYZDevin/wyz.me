@@ -10,5 +10,6 @@ const blogCollection = defineCollection({
 });
 
 export const collections = {
-  'blog': blogCollection,
+  'publications': blogCollection,
+  'works': blogCollection,
 };
