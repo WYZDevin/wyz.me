@@ -30,8 +30,7 @@ export const personSchema: WithContext<Person> = {
   // image: `${import.meta.env.SITE}${avatar.src}`,
   sameAs: [
     'https://www.twitter.com/WYZDevin',
-    'https://www.linkedin.com/in/devin-yongzhao-wu/',
-
+    'https://www.linkedin.com/in/devin-yongzhao-wu/'
   ],
   jobTitle: 'Software engineer'
   // worksFor: {

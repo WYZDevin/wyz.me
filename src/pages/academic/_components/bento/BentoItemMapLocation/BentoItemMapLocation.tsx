@@ -37,7 +37,7 @@ const ZoomButton = (props: ZoomButtonProps) => {
     <button
       onClick={onClick}
       className={cn(
-        'absolute size-10 rounded-full bg-neutral-100 text-3xl leading-none border-2 border-theme-heavy shadow-lg',
+        'absolute size-10 rounded-full border-2 border-theme-heavy bg-neutral-100 text-3xl leading-none shadow-lg',
         'scale-100 transition-all duration-300 hover:border-primary-500 hover:shadow-xl',
         'flex items-center justify-center',
         hide && 'scale-0',
@@ -111,8 +111,8 @@ const BentoItemMapLocation = ({ className }: Props) => {
       </MapContainer>
       <div className='absolute inset-0 flex items-center justify-center'>
         <div className='relative size-16'>
-          <div className='absolute size-full animate-ping rounded-full bg-primary-300/20 opacity-65 blur-sm'></div>
-          <div className='drop-shadow-primary size-full rounded-full bg-primary-400/30'></div>
+          <div className='bg-primary-300/20 absolute size-full animate-ping rounded-full opacity-65 blur-sm'></div>
+          <div className='drop-shadow-primary bg-primary-400/30 size-full rounded-full'></div>
         </div>
       </div>
 

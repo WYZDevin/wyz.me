@@ -6,7 +6,6 @@ import { cors } from 'hono/cors'
 
 import github from './_services/github'
 import getLinkMetadata from './_services/linkMetadata'
-
 import getTweetContent from './_services/tweetContent'
 
 const app = new Hono()

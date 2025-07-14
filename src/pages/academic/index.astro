@@ -5,6 +5,7 @@ import { mainWebsite } from '@/lib/structuredData'
 import BentoSection from './_components/BentoSection.astro'
 import Decorator from './_components/Decorator.astro'
 import HeroSection from './_components/HeroSection.astro'
+import ProjectsSection from './_components/ProjectsSection.astro'
 ---
 
 <BaseLayout>
@@ -16,8 +17,9 @@ import HeroSection from './_components/HeroSection.astro'
     slot='head'
   />
   <HeroSection />
-   
+
   <BentoSection />
+  <ProjectsSection />
 </BaseLayout>
 
 <style>

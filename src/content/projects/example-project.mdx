@@ -1,0 +1,80 @@
+---
+title: 'Modeling Urban Environmental Noise'
+description: 'An ML-enhanced spatial framework using street view imagery to model urban noise patterns'
+heroImage: '/assets/urban-noise-modeling.png'
+pubDate: '2025-07-12'
+year: 2025
+slug: 'urban-noise-modeling'
+---
+
+# Modeling Spatial and Temporal Urban Environmental Noise
+
+This project demonstrates how to:
+
+- Collect fine-resolution environmental noise data across time and space
+- Integrate street view imagery into land use regression models
+- Apply robust machine learning models (e.g., XGBoost) for noise prediction
+- Analyze and map noise levels dynamically across an urban area
+
+## Features
+
+- **Advanced Data Collection**: Over 99 million data points collected at 128 sites in Mississauga
+- **Street View-Derived Variables**: 19 micro-scale features extracted using Mask2Former
+- **XGBoost Modeling**: Robust handling of non-linear spatial relationships
+- **Spatiotemporal Resolution**: 24h, day, evening, and night noise predictions
+- **Noise Mapping**: City-wide noise maps aligned with the road network
+
+## Technical Stack
+
+- **Machine Learning**
+  - [XGBoost](https://xgboost.readthedocs.io/): Core modeling engine for noise prediction
+  - [Random Forest (scikit-learn)](https://scikit-learn.org/): Baseline nonlinear model
+  - [Linear Regression (statsmodels/scikit-learn)](https://www.statsmodels.org/): LUR baseline for comparison
+  - [Permutation Importance](https://eli5.readthedocs.io/en/latest/blackbox/permutation_importance.html): Model interpretability
+  - [Partial Dependence Plots (PDPs)](https://scikit-learn.org/stable/modules/partial_dependence.html): Feature effect analysis
+
+- **Computer Vision**
+  - [Mask2Former](https://github.com/facebookresearch/Mask2Former): For semantic segmentation of street view imagery
+  - [Cityscapes Dataset](https://www.cityscapes-dataset.com/): Pretraining data for urban scene understanding
+
+- **Geospatial Processing**
+  - [ArcPy / ArcGIS Pro](https://pro.arcgis.com/): Buffering, proximity analysis, land use extraction
+  - [Google Earth Engine](https://earthengine.google.com/): NDVI raster extraction from Landsat 8
+  - [Ontario GeoHub](https://geohub.lio.gov.on.ca/): Road network data
+  - [Mississauga Open Data](https://data.mississauga.ca/): Land use polygons and planning layers
+
+- **Noise Data Collection**
+  - [Convergence Instruments Sound Meters](https://www.convergenceinstruments.com/): High-frequency LAeq,1s data
+  - Custom rotational sampling framework across 128 urban locations
+
+- **Evaluation & Cross-Validation**
+  - Ten-fold cross-validation stratified by location
+  - Root Mean Square Error (RMSE), R², MAE, MAPE for performance benchmarking
+
+## Project Story
+
+The study aimed to address key limitations of traditional land use regression (LUR) models by incorporating:
+
+- **Machine learning** to model complex, nonlinear noise-environment relationships
+- **Street view imagery** to quantify fine-grained urban features (e.g., terrain, vegetation)
+- **High-resolution noise data** collected every second across 9 full days per site
+
+Street view imagery was sampled at 100m intervals, processed via deep learning segmentation, and aggregated within optimized buffer zones. Multiple model configurations (LM, RF, XGBoost) were evaluated across different time windows and feature sets.
+
+## Results
+
+- **Best Model**: XGBoost with street view + GIS features (SV-GIS)
+  - R² = 0.608, RMSE = 3.58 dBA for Leq,24h
+- **Key Predictors**: Terrain percentage (SV), arterial road length (GIS), NDVI (remote sensing)
+- **Temporal Modeling**: Day, evening, and night noise patterns showed distinct spatial trends
+- **Noise Mapping**: Predicted city-wide road-based Leq,24h levels, aiding visualization and planning
+
+## Conclusion
+
+This research confirms the value of combining street view imagery and ML in urban noise modeling:
+
+- Enhances predictive accuracy over traditional LUR
+- Improves interpretability via feature importance and partial dependence analysis
+- Supports dynamic urban noise mapping and policy making
+
+This framework can be extended to other cities with SVI coverage and offers a scalable tool for public health and urban planning efforts.

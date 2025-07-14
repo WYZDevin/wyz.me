@@ -2,11 +2,11 @@ import { Github } from '@icons/Github'
 import HeatMap, { type SVGProps } from '@uiw/react-heat-map'
 import React, { useEffect, useState } from 'react'
 
+import client from '@/lib/client'
 import { formatDate, formatNumber, getDateSuffix } from '@/lib/utils'
 import type { GithubContributionData } from '@/types'
 
 import BentoBadge from '../BentoBadge'
-import client from '@/lib/client'
 
 const getDateProps = () => {
   const today = new Date()
@@ -16,19 +16,23 @@ const getDateProps = () => {
   return { startDate: sixMonthsAgo, endDate: today }
 }
 
-const renderRect = (handleMouseEnter: (date: string) => void): SVGProps['rectRender'] => (props, data) => {
-  const date = new Date(data.date)
-  const formattedDate = date.toLocaleDateString('en-US', { day: 'numeric', month: 'long' }) + getDateSuffix(date.getDate())
-  const tileInfo = `${data.count ? formatNumber(data.count) : 'No'} contributions on ${formattedDate}`
+const renderRect =
+  (handleMouseEnter: (date: string) => void): SVGProps['rectRender'] =>
+  (props, data) => {
+    const date = new Date(data.date)
+    const formattedDate =
+      date.toLocaleDateString('en-US', { day: 'numeric', month: 'long' }) +
+      getDateSuffix(date.getDate())
+    const tileInfo = `${data.count ? formatNumber(data.count) : 'No'} contributions on ${formattedDate}`
 
-  return (
-    <rect
-      className='transition-all hover:brightness-125'
-      onMouseEnter={() => handleMouseEnter(tileInfo)}
-      {...props}
-    />
-  )
-}
+    return (
+      <rect
+        className='transition-all hover:brightness-125'
+        onMouseEnter={() => handleMouseEnter(tileInfo)}
+        {...props}
+      />
+    )
+  }
 
 const BentoGithubActivity = () => {
   const [data, setData] = useState<GithubContributionData | null>(null)
@@ -48,7 +52,9 @@ const BentoGithubActivity = () => {
     fetchData()
   }, [])
 
-  const defaultValue = data ? `${formatNumber(data.totalContributions)} contributions in the last year` : ''
+  const defaultValue = data
+    ? `${formatNumber(data.totalContributions)} contributions in the last year`
+    : ''
   const [hoveredTile, setHoveredTile] = useState<string | null>(defaultValue)
 
   useEffect(() => {
@@ -65,7 +71,7 @@ const BentoGithubActivity = () => {
 
   return (
     <div className='relative flex h-full flex-col justify-between px-4 pb-5 pt-4 max-md:gap-4'>
-      <div className='flex items-baseline justify-between gap-4 max-xs:flex-col'>
+      <div className='max-xs:flex-col flex items-baseline justify-between gap-4'>
         <BentoBadge icon={Github} text='Github activity' />
         <p className='line-clamp-1 text-sm'>{hoveredTile}</p>
       </div>

@@ -1,0 +1,200 @@
+---
+import { getCollection } from 'astro:content'
+const projects = await getCollection('projects')
+// Sort by pubDate descending, fallback to year if needed
+const sorted = projects.slice().sort((a, b) => {
+  const aDate = a.data.pubDate
+    ? new Date(a.data.pubDate).getTime()
+    : new Date(a.data.year, 0, 1).getTime()
+  const bDate = b.data.pubDate
+    ? new Date(b.data.pubDate).getTime()
+    : new Date(b.data.year, 0, 1).getTime()
+  return bDate - aDate
+})
+const recent = sorted.slice(0, 3)
+---
+
+<section class='projects-section'>
+  <div class='mb-12 flex items-center justify-between'>
+    <h2 class='section-title'>Projects</h2>
+    <a href='/academic/projects/' class='see-all-projects-link'
+      >See all projects →</a
+    >
+  </div>
+  <div class='projects-grid'>
+    {
+      recent.map((project) => {
+        const { heroImage, title, description, pubDate, tags } = project.data
+        let formattedDate = ''
+        if (pubDate) {
+          try {
+            const dateObj =
+              typeof pubDate === 'string' ? new Date(pubDate) : pubDate
+            formattedDate = !isNaN(dateObj)
+              ? dateObj.toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long'
+                })
+              : ''
+          } catch (e) {
+            formattedDate = ''
+          }
+        }
+        return (
+          <a
+            href={`/academic/projects/${project.slug ?? project.id}/`}
+            class='project-card'
+          >
+            <div class='project-image-container'>
+              <img
+                src={heroImage ?? '/assets/project_bookmarked_1.png'}
+                alt={(title ?? 'Project') + ' hero'}
+                class='project-image'
+              />
+            </div>
+            <div class='project-content'>
+              <h3 class='project-title'>{title ?? 'Untitled Project'}</h3>
+              <p class='project-description'>{description ?? ''}</p>
+              <div class='project-footer'>
+                <div class='project-tags'>
+                  {tags?.map((tag) => (
+                    <span class='project-tag'>{tag}</span>
+                  ))}
+                </div>
+                {formattedDate && (
+                  <span class='project-date'>{formattedDate}</span>
+                )}
+              </div>
+            </div>
+          </a>
+        )
+      })
+    }
+  </div>
+</section>
+
+<style>
+  .projects-section {
+    padding: 4rem 0;
+    background-color: var(--section-bg, #f9fafb);
+  }
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    font-weight: 800;
+    color: var(--text-color, #111827);
+  }
+  .projects-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 320px;
+    justify-content: start;
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    overflow-x: auto;
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  .projects-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg, #fff);
+    border-radius: 1rem;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    text-decoration: none;
+    color: inherit;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    overflow: hidden;
+    border: 1px solid var(--card-border-color, #e5e7eb);
+  }
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  .project-image-container {
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    position: relative;
+    overflow: hidden;
+  }
+  .project-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  .project-card:hover .project-image {
+    transform: scale(1.05);
+  }
+  .project-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .project-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--text-color, #111827);
+  }
+  .project-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary, #4b5563);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+  .project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+  }
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .project-tag {
+    background-color: var(--tag-bg, #e5e7eb);
+    color: var(--tag-color, #4b5563);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  .project-date {
+    font-size: 0.875rem;
+    color: var(--text-tertiary, #6b7280);
+    white-space: nowrap;
+  }
+  .see-all-projects-link {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color, #3b82f6);
+    color: white;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s;
+  }
+  .see-all-projects-link:hover {
+    background-color: var(--primary-hover-color, #2563eb);
+  }
+</style>

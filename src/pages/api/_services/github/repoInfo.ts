@@ -9,8 +9,6 @@ const getLastUpdatedTime = async (
   owner: string,
   repository: string
 ): Promise<GithubRepositoryLastUpdated> => {
-
-  
   const response = await request({
     url: 'https://api.github.com/graphql',
     document: GetRepoInfo,

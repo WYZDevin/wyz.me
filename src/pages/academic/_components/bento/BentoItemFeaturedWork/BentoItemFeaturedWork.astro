@@ -21,7 +21,7 @@ import BentoBadge from '../BentoBadge'
       text='Featured work'
       className={{ component: 'w-fit' }}
     />
-    <div class='space-y-3 xs:max-md:w-1/2'>
+    <div class='xs:max-md:w-1/2 prose space-y-3'>
       <p class='text-xl leading-none'>Bookmarked</p>
       <p class='text-sm leading-relaxed text-theme-secondary'>
         Effortlessly save and organize your favorite tweets in Notion using a
@@ -54,7 +54,7 @@ import BentoBadge from '../BentoBadge'
         time='Just now'
         message='Your bookmark has been saved'
         class:list={[
-          'z-20 text-theme-primary max-xs:w-[300px]',
+          'max-xs:w-[300px] z-20 text-theme-primary',
           'transition-all duration-300',
           'group-hover:-mt-2 group-hover:scale-105',
           'hidden-notification-card'

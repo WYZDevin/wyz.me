@@ -1,6 +1,6 @@
 import * as SeparatorPrimitive from '@radix-ui/react-separator'
-import * as React from 'react'
 import type { ComponentPropsWithoutRef } from 'react'
+import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 

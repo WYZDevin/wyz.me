@@ -16,4 +16,4 @@ export function GoogleScholar(props: Readonly<SVGProps<SVGSVGElement>>) {
       ></path>
     </svg>
   )
-} 
+}

@@ -1,9 +1,10 @@
-import { Graduation } from '@/components/icons/Graduation'
+import type { ComponentType, SVGProps } from 'react'
+
 import { Briefcase } from '@/components/icons/Briefcase'
 import { Code } from '@/components/icons/Code'
-import { Trophy } from '@/components/icons/Trophy'
+import { Graduation } from '@/components/icons/Graduation'
 import { Pencil } from '@/components/icons/Pencil'
-import type { ComponentType, SVGProps } from 'react'
+import { Trophy } from '@/components/icons/Trophy'
 
 export interface TimelineItem {
   year: string
@@ -25,7 +26,7 @@ export const timelineData: TimelineItem[] = [
     year: '2023',
     title: 'MSc (Geography)',
     description: 'Working on my MSc thesis',
-    icon: Trophy,
+    icon: Pencil,
     type: 'education'
   },
   {
@@ -41,5 +42,5 @@ export const timelineData: TimelineItem[] = [
     description: 'Working toward my comprehensive exam',
     icon: Pencil,
     type: 'publication'
-  },
+  }
 ]

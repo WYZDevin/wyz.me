@@ -1,8 +1,8 @@
 import { GithubOutline } from '@icons/GithubOutline'
+import { GoogleScholar } from '@icons/GoogleScholar'
 import { LinkedIn } from '@icons/LinkedIn'
 import { Mail } from '@icons/Mail'
 import { Scroll } from '@icons/Scroll'
-import { GoogleScholar } from '@icons/GoogleScholar'
 
 export const SOCIAL_MEDIA_DATA = [
   {

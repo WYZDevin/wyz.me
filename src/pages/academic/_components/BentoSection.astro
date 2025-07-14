@@ -33,13 +33,14 @@ import BentoItemTimeline from './bento/BentoItemTimeline/BentoItemTimeline.astro
   id='bento'
   class:list={[
     'auto-rows-[minmax(0,1fr)] grid-cols-[repeat(36,_minmax(0,_1fr))] gap-4',
-    'flex-col max-lg:grid-cols-6 max-md:flex max-md:gap-4 md:grid aspect-auto'
+    'aspect-auto flex-col max-lg:grid-cols-6 max-md:flex max-md:gap-4 md:grid'
   ]}
 >
-
   <!-- A placeholder to keep the aspect ratio of the bento section -->
-  <BentoCard className="aspect-square col-start-2 col-end-[2] row-start-2 row-end-[2]">
-    <div />
+  <BentoCard
+    className='col-start-2 col-end-[2] row-start-2 row-end-[2] aspect-square'
+  >
+    <div></div>
   </BentoCard>
 
   <!-- Timeline -->
@@ -53,16 +54,15 @@ import BentoItemTimeline from './bento/BentoItemTimeline/BentoItemTimeline.astro
     <BentoItemTimeline />
   </BentoCard>
 
-  
   <!-- CTA -->
-  <BentoCard
+  <!-- <BentoCard
     className={cn(
       'col-start-1 col-end-[37] row-start-9 row-end-[11]',
       'max-lg:col-start-1 max-lg:col-end-7 max-lg:row-start-5 max-lg:row-end-6'
     )}
   >
     <BentoItemCTA />
-  </BentoCard>
+  </BentoCard> -->
 
   <!-- Github activity & tech stack -->
   <BentoCard
@@ -83,7 +83,6 @@ import BentoItemTimeline from './bento/BentoItemTimeline/BentoItemTimeline.astro
   >
     <BentoItemTechStack />
   </BentoCard>
-
 </section>
 
 <style is:global>

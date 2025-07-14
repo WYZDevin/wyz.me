@@ -71,6 +71,51 @@
   }
 }
 
+.prose p {
+  margin-bottom: 1.25em;
+}
+
+.prose h2 {
+  font-size: 1.5em; /* 24px */
+  font-weight: 600;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.prose h3 {
+  font-size: 1.25em; /* 20px */
+  font-weight: 600;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+}
+
+.prose ul {
+  list-style-type: disc;
+  padding-left: 1.5em;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.prose ul ul {
+  list-style-type: circle;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose li > p {
+  margin-bottom: 0.5em;
+}
+
+.prose strong {
+  font-weight: 600;
+}
+
+
 /* Legacy color variables - replaced by theme.css */
 
 :focus-visible {
