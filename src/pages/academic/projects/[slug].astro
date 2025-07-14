@@ -12,9 +12,7 @@ import TableOfContent from '@/components/TableOfContent'
 import TopOverlay from '@/components/TopOverlay.astro'
 import ScrollProgressBar from '@/components/ui/scroll-progress-bar'
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import Links from '@/layouts/components/Links.astro'
 import { BASE_URL } from '@/lib/baseUrl'
-import { formatDateByTimeZone } from '@/lib/utils'
 
 interface Props extends InferEntrySchema<'projects'> {
   headings: MarkdownHeading[]
@@ -35,7 +33,7 @@ export async function getStaticPaths() {
 
 const project = await getEntry('projects', Astro.params.slug)
 const slug = Astro.params.slug
-const { year, description, heroImage, title } = project.data!
+const { year, description, heroImage, title } = project?.data ?? {}
 
 const { Content, headings } = await render(project!)
 ---
@@ -77,9 +75,9 @@ const { Content, headings } = await render(project!)
   </section>
 
   <Image
-    src={heroImage}
-    alt={title}
-    title={title}
+    src={heroImage ?? ''}
+    alt={title ?? ''}
+    title={title ?? ''}
     align='center'
     wrapperProps={{ class: 'rounded-lg mt-8 sm:mt-12' }}
     class='xs:aspect-[2] aspect-[1.5] w-full'

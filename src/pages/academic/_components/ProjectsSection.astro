@@ -24,13 +24,13 @@ const recent = sorted.slice(0, 3)
   <div class='projects-grid'>
     {
       recent.map((project) => {
-        const { heroImage, title, description, pubDate, tags } = project.data
+        const { heroImage, title, description, pubDate } = project.data
         let formattedDate = ''
         if (pubDate) {
           try {
             const dateObj =
               typeof pubDate === 'string' ? new Date(pubDate) : pubDate
-            formattedDate = !isNaN(dateObj)
+            formattedDate = !isNaN(dateObj.getTime())
               ? dateObj.toLocaleDateString('en-US', {
                   year: 'numeric',
                   month: 'long'
@@ -42,7 +42,7 @@ const recent = sorted.slice(0, 3)
         }
         return (
           <a
-            href={`/academic/projects/${project.slug ?? project.id}/`}
+            href={`/academic/projects/${project.id}/`}
             class='project-card'
           >
             <div class='project-image-container'>
@@ -57,9 +57,9 @@ const recent = sorted.slice(0, 3)
               <p class='project-description'>{description ?? ''}</p>
               <div class='project-footer'>
                 <div class='project-tags'>
-                  {tags?.map((tag) => (
+                  {/* {tags?.map((tag) => (
                     <span class='project-tag'>{tag}</span>
-                  ))}
+                  ))} */}
                 </div>
                 {formattedDate && (
                   <span class='project-date'>{formattedDate}</span>

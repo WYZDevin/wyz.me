@@ -10,7 +10,7 @@ import fs from 'fs'
 import path from 'path'
 import type { ReactElement } from 'react'
 
-type AllCollectionEntry = CollectionEntry<'projects' | 'blog'>
+type AllCollectionEntry = CollectionEntry<'projects'>
 
 type OGAPIRoute = APIRoute<
   InferGetStaticPropsType<typeof getStaticPaths>,
@@ -145,9 +145,8 @@ export const GET: OGAPIRoute = async ({ props }) => {
 // Instead, OG images are generated only for existing articles during build time.
 export const getStaticPaths = (async () => {
   const projects = await getCollection('projects')
-  const blog = await getCollection('blog')
 
-  return [...projects, ...blog].map((posts) => ({
+  return projects.map((posts) => ({
     params: {
       slug: posts.id // used as the key to map the og photo to the posts
     },

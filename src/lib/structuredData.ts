@@ -48,7 +48,7 @@ export function getProjectSchema(post: CollectionEntry<'projects'>) {
     url: `${import.meta.env.SITE}/projects/${post.id}/`,
     image: {
       '@type': 'ImageObject',
-      url: `${import.meta.env.SITE}${post.data.heroImage.src}/`
+      url: `${import.meta.env.SITE}${post.data.heroImage}`
     },
     description: post.data.description,
     // datePublished
