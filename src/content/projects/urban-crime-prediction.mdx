@@ -1,0 +1,96 @@
+---
+title: 'Urban Crime Prediction Using Street View Imagery'
+description: 'Machine learning framework analyzing micro built environments and human perceptions to predict street crime patterns'
+heroImage: '/assets/urban-crime-prediction.png'
+pubDate: '2024-12-07'
+year: 2024
+slug: 'urban-crime-prediction'
+---
+
+# Predicting Street Crime Through Environmental Design and Human Perception
+
+## [Link to the paper](https://doi.org/10.3390/urbansci8040247)
+
+This project demonstrates how to:
+
+- Extract micro built environment (MBE) features from street view imagery using deep learning
+- Quantify human perceptions of urban spaces (safety, beauty, depression) at scale
+- Apply machine learning models to predict crime likelihood at street intersections
+- Analyze the relationship between environmental design and criminal activity
+
+## Features
+
+- **Deep Learning Segmentation**: 19 MBE types extracted using PSPNet trained on Cityscapes dataset
+- **Perception Modeling**: 6 human perception variables (safety, beauty, liveliness, etc.) derived from Place Pulse 2.0
+- **Crime Classification**: XGBoost model achieving 86% accuracy in predicting crime vs non-crime intersections
+- **City-wide Analysis**: Comprehensive study of Toronto's street intersections and crime patterns
+- **CPTED Integration**: Findings aligned with Crime Prevention Through Environmental Design principles
+
+## Technical Stack
+
+- **Deep Learning**
+  - [PSPNet (Pyramid Scene Parsing Network)](https://github.com/hszhao/PSPNet): Semantic segmentation of street environments
+  - [Cityscapes Dataset](https://www.cityscapes-dataset.com/): 25,000 annotated urban street scenes for model training
+  - [GluonCV](https://cv.gluon.ai/): Pre-trained computer vision models implementation
+
+- **Machine Learning**
+  - [XGBoost](https://xgboost.readthedocs.io/): Primary classification model for crime prediction
+  - [Logistic Regression](https://scikit-learn.org/): Statistical analysis of feature associations
+  - [Feature Importance Analysis](https://xgboost.readthedocs.io/en/stable/python/python_intro.html#training): Data impurity-based metrics for variable ranking
+
+- **Perception Analysis**
+  - [Place Pulse 2.0 Dataset](http://pulse.media.mit.edu/): 1.17M pairwise comparisons of street imagery
+  - [Strength-of-Schedule Algorithm](https://en.wikipedia.org/wiki/Strength_of_schedule): Converting pairwise comparisons to 0-1 perception scores
+  - [Support Vector Classifier](https://scikit-learn.org/stable/modules/svm.html): 79.44% accuracy in safety perception classification
+
+- **Geospatial Data**
+  - [Toronto Police Open Data](https://data.torontopolice.on.ca/): 242,879 crime records (2014-2022)
+  - [Toronto Census Data 2016](https://www.toronto.ca/city-government/data-research-maps/open-data/): Demographic control variables
+  - [Google Street View API](https://developers.google.com/maps/documentation/streetview): High-resolution street imagery collection
+
+- **Statistical Analysis**
+  - [Variance Inflation Factor (VIF)](https://www.statsmodels.org/stable/generated/statsmodels.stats.outliers_influence.variance_inflation_factor.html): Multicollinearity detection
+  - [Akaike Information Criterion (AIC)](https://en.wikipedia.org/wiki/Akaike_information_criterion): Model comparison and selection
+  - [Five-fold Cross-validation](https://scikit-learn.org/stable/modules/cross_validation.html): Model validation and performance assessment
+
+## Project Story
+
+Traditional crime analysis relies on aggregated census data that fails to capture fine-grained environmental details around crime locations. This study addresses the gap by:
+
+- **Micro-scale Analysis**: Moving beyond census blocks to examine specific street intersection characteristics
+- **Perception Integration**: Incorporating human perceptions beyond just safety (beauty, depression, liveliness)
+- **Environmental Design Focus**: Testing Crime Prevention Through Environmental Design (CPTED) principles with data
+
+The research collected street view imagery for crime and non-crime intersections across Toronto, extracting detailed environmental features and human perception scores to understand what makes certain locations more susceptible to criminal activity.
+
+## Key Findings
+
+- **Environmental Factors**: Mobility-related elements (roads, vehicles, sidewalks) showed strong positive association with crime
+- **Vegetation Effect**: Natural elements like vegetation significantly reduced crime likelihood
+- **Perception Insights**: Beauty and depression perceptions were better predictors than traditional safety measures
+- **Model Performance**: MBE variables explained crime events more effectively than perception variables alone
+- **Urban Planning Impact**: Findings support targeted interventions in street design and environmental aesthetics
+
+## Results
+
+- **Best Classification Model**: XGBoost with all variables
+  - Accuracy: 86% in five-fold cross-validation
+  - Top predictors: Traffic lights, buildings, vegetation, beautiful perception
+- **Statistical Significance**: All perception variables except "lively" showed significant associations with crime
+- **Feature Importance**: Beautiful perception ranked highest among perception variables
+- **Practical Applications**: Results inform urban planning strategies for crime prevention
+
+## Implications
+
+This research provides evidence-based insights for:
+
+- **Urban Planners**: Balancing accessibility with safety in public space design
+- **Policymakers**: Understanding how environmental aesthetics influence crime patterns  
+- **Community Safety**: Implementing targeted interventions based on environmental risk factors
+- **CPTED Practitioners**: Validating environmental design principles with large-scale data analysis
+
+## Conclusion
+
+The study demonstrates that street-level environmental characteristics and human perceptions are significantly associated with crime events. By integrating computer vision, machine learning, and urban theory, this framework offers a scalable approach to understanding and predicting crime patterns for safer, more sustainable urban development.
+
+The methodology can be adapted to other cities with street view imagery coverage, providing a valuable tool for evidence-based urban planning and crime prevention strategies.

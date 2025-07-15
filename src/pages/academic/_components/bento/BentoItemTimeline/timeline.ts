@@ -23,24 +23,10 @@ export const timelineData: TimelineItem[] = [
     type: 'education'
   },
   {
-    year: '2023',
-    title: 'MSc (Geography)',
-    description: 'Working on my MSc thesis',
-    icon: Pencil,
-    type: 'education'
-  },
-  {
     year: '2024',
     title: 'PhD (Geography)',
     description: 'Started my PhD in Geography @ UofT.',
     icon: Graduation,
     type: 'education'
   },
-  {
-    year: '2025',
-    title: 'PhD (Geography)',
-    description: 'Working toward my comprehensive exam',
-    icon: Pencil,
-    type: 'publication'
-  }
 ]

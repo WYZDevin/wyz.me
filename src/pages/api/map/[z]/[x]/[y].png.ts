@@ -6,7 +6,8 @@ interface MapCoordinate {
 }
 
 const generateMapUrl = ({ z, x, y }: MapCoordinate): string => {
-  return `https://api.maptiler.com/maps/streets-v2-dark/${z}/${x}/${y}.png`
+  // return `https://api.maptiler.com/maps/streets-v2-dark/${z}/${x}/${y}.png`
+  return `https://tile.openstreetmap.org/{z}/{x}/{y}.png`
 }
 
 export const GET: APIRoute = async ({ params }) => {

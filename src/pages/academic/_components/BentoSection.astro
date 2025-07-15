@@ -1,13 +1,12 @@
 ---
 import { cn } from '@/lib/utils'
 
-import BentoBadge from './bento/BentoBadge'
 import BentoCard from './bento/BentoCard'
-import BentoItemCTA from './bento/BentoItemCTA'
-import BentoItemFeaturedWork from './bento/BentoItemFeaturedWork'
+import BentoItemAboutMe from './bento/BentoItemAboutMe'
 import BentoItemGithubActivity from './bento/BentoItemGithubActivity'
 import BentoItemTechStack from './bento/BentoItemTechStack'
 import BentoItemTimeline from './bento/BentoItemTimeline/BentoItemTimeline.astro'
+import BentoItemMapLocation from './bento/BentoItemMapLocation/BentoItemMapLocation'
 ---
 
 <script>
@@ -32,53 +31,61 @@ import BentoItemTimeline from './bento/BentoItemTimeline/BentoItemTimeline.astro
 <section
   id='bento'
   class:list={[
-    'auto-rows-[minmax(0,1fr)] grid-cols-[repeat(36,_minmax(0,_1fr))] gap-4',
-    'aspect-auto flex-col max-lg:grid-cols-6 max-md:flex max-md:gap-4 md:grid'
+    'auto-rows-[minmax(0,1fr)] grid-cols-[repeat(12,_minmax(0,_1fr))] gap-6',
+    'aspect-auto max-lg:grid-cols-4 max-md:flex max-md:flex-col max-md:gap-4 md:grid'
   ]}
 >
-  <!-- A placeholder to keep the aspect ratio of the bento section -->
-  <BentoCard
-    className='col-start-2 col-end-[2] row-start-2 row-end-[2] aspect-square'
-  >
-    <div></div>
-  </BentoCard>
-
-  <!-- Timeline -->
+  <!-- About Me - Hero card -->
   <BentoCard
     className={cn(
-      'col-start-1 col-end-[37] row-start-1 row-end-[9]',
-      'max-lg:col-start-1 max-lg:col-end-7 max-lg:row-start-1 max-lg:row-end-5',
-      'aspect-auto'
+      'h-full min-h-[320px]',
+      'col-span-5 row-span-2',
+      'max-lg:col-span-4 max-lg:row-span-2'
+    )}
+  >
+    <BentoItemAboutMe />
+  </BentoCard>
+
+  <!-- Timeline - Wide horizontal card -->
+  <BentoCard
+    className={cn(
+      'h-full min-h-[200px]',
+      'col-span-7 row-span-1',
+      'max-lg:col-span-4 max-lg:row-span-1'
     )}
   >
     <BentoItemTimeline />
   </BentoCard>
 
-  <!-- CTA -->
-  <!-- <BentoCard
-    className={cn(
-      'col-start-1 col-end-[37] row-start-9 row-end-[11]',
-      'max-lg:col-start-1 max-lg:col-end-7 max-lg:row-start-5 max-lg:row-end-6'
-    )}
-  >
-    <BentoItemCTA />
-  </BentoCard> -->
-
-  <!-- Github activity & tech stack -->
+  <!-- Map Location - Square-ish card -->
   <BentoCard
     className={cn(
-      'col-start-1 col-end-[21] row-start-11 row-end-[21]',
-      'max-lg:col-start-1 max-lg:col-end-4 max-lg:row-start-6 max-lg:row-end-11'
+      'h-full min-h-[280px]',
+      'col-span-7 row-span-1',
+      'max-lg:col-span-4 max-lg:row-span-2'
+    )}
+  >
+    <BentoItemMapLocation className='rounded-3xl' client:only='react' />
+  </BentoCard>
+
+  <!-- Github Activity - Medium card -->
+  <BentoCard
+    className={cn(
+      'h-full min-h-[240px]',
+      'col-span-6 row-span-1',
+      'max-lg:col-span-2 max-lg:row-span-1'
     )}
   >
     <BentoItemGithubActivity />
   </BentoCard>
 
+  <!-- Tech Stack - Medium card -->
   <BentoCard
     client:visible
     className={cn(
-      'col-start-[21] col-end-[37] row-start-11 row-end-[21]',
-      'max-lg:col-start-4 max-lg:col-end-7 max-lg:row-start-6 max-lg:row-end-11'
+      'h-full min-h-[240px]',
+      'col-span-6 row-span-1',
+      'max-lg:col-span-2 max-lg:row-span-1'
     )}
   >
     <BentoItemTechStack />

@@ -12,7 +12,7 @@ const BentoCard = (props: Props) => {
 
   return (
     <div className={cn('card group rounded-3xl', className)} {...rest}>
-      <div className={cn('card-content md:absolute')}>{children}</div>
+      <div className={cn('card-content')}>{children}</div>
     </div>
   )
 }

@@ -8,8 +8,9 @@ import { Minus } from '@/components/icons/Minus'
 import { Plus } from '@/components/icons/Plus'
 import { cn } from '@/lib/utils'
 
-const LATITUDE = -6.147
-const LONGITUDE = 106.85
+// Use toronto
+const LATITUDE = 43.6532
+const LONGITUDE = -79.3832
 
 const ZOOM_STEP = 2
 const zoomOptions: ZoomPanOptions = {
@@ -21,7 +22,7 @@ const zoomOptions: ZoomPanOptions = {
 const MAX_ZOOM = 12
 const MIN_ZOOM = 8
 
-const MAP_URL = '/api/map/{z}/{x}/{y}.png'
+const MAP_URL = 'https://cdn.lima-labs.com/{z}/{x}/{y}.png?api=demo'
 
 interface ZoomButtonProps
   extends Pick<
@@ -37,8 +38,8 @@ const ZoomButton = (props: ZoomButtonProps) => {
     <button
       onClick={onClick}
       className={cn(
-        'absolute size-10 rounded-full border-2 border-theme-heavy bg-neutral-100 text-3xl leading-none shadow-lg',
-        'scale-100 transition-all duration-300 hover:border-primary-500 hover:shadow-xl',
+        'absolute size-10 rounded-full bg-zinc-950 text-3xl leading-none outline outline-2 outline-slate-700',
+        'scale-100 transition-all duration-300 hover:outline-4',
         'flex items-center justify-center',
         hide && 'scale-0',
         className
@@ -84,14 +85,14 @@ const BentoItemMapLocation = ({ className }: Props) => {
         ref={mapRef}
         zoom={MAX_ZOOM}
         center={[LATITUDE, LONGITUDE]}
-        dragging={false}
-        touchZoom={false} // Disables pinch-to-zoom on touch devices
+        dragging={true}
+        touchZoom={true} // Disables pinch-to-zoom on touch devices
         scrollWheelZoom={false} // Disables zooming with the mouse wheel
         doubleClickZoom={false} // Disables zooming on double-click
-        zoomControl={false} // Hides the zoom control
+        zoomControl={true} // Hides the zoom control
         attributionControl={false} // Hides the attribution control
         className={cn(
-          'brightness-[0.64] -hue-rotate-[24deg] saturate-[0.86]',
+          // 'brightness-[0.64] -hue-rotate-[24deg] saturate-[0.86]',
           'h-full min-h-full w-full',
           className
         )}
@@ -99,9 +100,9 @@ const BentoItemMapLocation = ({ className }: Props) => {
       >
         <TileLayer
           url={MAP_URL}
-          zoomOffset={-1}
+          // zoomOffset={-1}
           minZoom={1}
-          tileSize={512}
+          // tileSize={512}
           eventHandlers={{
             tileloadstart: (event) => {
               event.tile.setAttribute('loading', 'lazy')
@@ -111,12 +112,12 @@ const BentoItemMapLocation = ({ className }: Props) => {
       </MapContainer>
       <div className='absolute inset-0 flex items-center justify-center'>
         <div className='relative size-16'>
-          <div className='bg-primary-300/20 absolute size-full animate-ping rounded-full opacity-65 blur-sm'></div>
-          <div className='drop-shadow-primary bg-primary-400/30 size-full rounded-full'></div>
+          <div className='absolute size-full animate-ping rounded-full bg-emerald-300/20 opacity-65 blur-sm'></div>
+          <div className='drop-shadow-green size-full rounded-full bg-emerald-400/30'></div>
         </div>
       </div>
 
-      <ZoomButton
+      {/* <ZoomButton
         onClick={zoomOut}
         className='bottom-4 left-4'
         hide={currentZoom <= MIN_ZOOM}
@@ -130,7 +131,7 @@ const BentoItemMapLocation = ({ className }: Props) => {
         hide={currentZoom >= MAX_ZOOM}
       >
         <Plus className='size-4' />
-      </ZoomButton>
+      </ZoomButton> */}
     </div>
   )
 }

@@ -92,35 +92,29 @@ const techStacks: TechStack[] = [
       'Python is an interpreted, high-level and general-purpose programming language.'
   },
   {
-    name: 'PyTorch',
-    icon: PyTorch,
-    description:
-      'PyTorch is an open source machine learning library based on the Torch library.'
-  },
-  {
     name: 'ArcGIS',
     icon: ArcGIS,
     description:
       'ArcGIS is a family of client software, server software, and online geographic information system (GIS) services.'
   },
-  {
-    name: 'AWS',
-    icon: AWS,
-    description:
-      'Amazon Web Services is a subsidiary of Amazon providing on-demand cloud computing platforms and APIs.'
-  },
-  {
-    name: 'PostGIS',
-    icon: PostGIS,
-    description:
-      'PostGIS is a spatial database extender for PostgreSQL object-relational database.'
-  },
-  {
-    name: 'PostgreSQL',
-    icon: PostgreSQL,
-    description:
-      'PostgreSQL is a free and open-source relational database management system.'
-  },
+  // {
+  //   name: 'AWS',
+  //   icon: AWS,
+  //   description:
+  //     'Amazon Web Services is a subsidiary of Amazon providing on-demand cloud computing platforms and APIs.'
+  // },
+  // {
+  //   name: 'PostGIS',
+  //   icon: PostGIS,
+  //   description:
+  //     'PostGIS is a spatial database extender for PostgreSQL object-relational database.'
+  // },
+  // {
+  //   name: 'PostgreSQL',
+  //   icon: PostgreSQL,
+  //   description:
+  //     'PostgreSQL is a free and open-source relational database management system.'
+  // },
   {
     name: 'MongoDB',
     icon: MongoDB,
