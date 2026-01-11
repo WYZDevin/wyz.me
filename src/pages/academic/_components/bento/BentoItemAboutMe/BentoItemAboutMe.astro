@@ -9,7 +9,9 @@ interface Props {
 const { class: className } = Astro.props
 ---
 
-<div class:list={['relative flex h-full flex-col justify-between p-6', className]}>
+<div
+  class:list={['relative flex h-full flex-col justify-between p-6', className]}
+>
   <!-- Badge -->
   <div class='mb-6'>
     <BentoBadge
@@ -28,10 +30,14 @@ const { class: className } = Astro.props
       </h2>
       <div class='prose space-y-3'>
         <p class='text-base leading-relaxed text-theme-secondary'>
-          PhD student exploring GeoAI at University of Toronto, passionate about turning complex spatial data into meaningful insights.
+          PhD student exploring GeoAI at University of Toronto, passionate about
+          turning complex spatial data into meaningful insights.
         </p>
-        <p class='text-sm leading-relaxed text-theme-secondary/80'>
-          When I'm not diving into research, I'm building full-stack applications that bridge the gap between academic innovation and real-world solutions.
+        <p class='text-base leading-relaxed text-theme-secondary'>
+          Beyond research, I am a Software Developer at Arima Data, where I
+          blend software engineering with data science—handling large-scale
+          mobility data, designing location intelligence backends, and building
+          spatial-temporal visualizations.
         </p>
       </div>
     </div>
@@ -43,15 +49,23 @@ const { class: className } = Astro.props
         <div class='text-xs text-theme-secondary'>University of Toronto</div>
       </div>
       <div class='space-y-1'>
-        <div class='text-lg font-semibold text-theme-primary'>Research Focus</div>
+        <div class='text-lg font-semibold text-theme-primary'>
+          Research Focus
+        </div>
         <div class='text-xs text-theme-secondary'>Spatial Intelligence</div>
         <div class='text-xs text-theme-secondary'>Spatial Modeling</div>
         <div class='text-xs text-theme-secondary'>GeoAI</div>
         <div class='text-xs text-theme-secondary'>Noise Pollution</div>
       </div>
-      <div class='space-y-1'>
-        <div class='text-lg font-semibold text-theme-primary'>Other Than Research......</div>
-        <div class='text-xs text-theme-secondary'>I am a Full Stack Developer!</div>
+      <div class='col-span-2 space-y-1'>
+        <div class='text-lg font-semibold text-theme-primary'>
+          Software Developer / Geospatial Data Scientist
+        </div>
+        <div class='text-xs text-theme-secondary'>
+          I tell people I'm a software developer, but 1/2 of my time were spent
+          to process & optimize large scale mobility data, and 1/2 of my time
+          build backend services to serve the data (in an efficient way).
+        </div>
       </div>
       <!-- <div class='space-y-1'>
         <div class='text-lg font-semibold text-theme-primary'>Open to</div>
@@ -61,6 +75,12 @@ const { class: className } = Astro.props
   </div>
 
   <!-- Subtle background decoration -->
-  <div class='absolute -right-4 -top-4 h-24 w-24 rounded-full bg-gradient-to-br from-primary-400/10 to-primary-600/5 blur-xl'></div>
-  <div class='absolute -bottom-6 -left-2 h-16 w-16 rounded-full bg-gradient-to-tr from-emerald-400/10 to-emerald-600/5 blur-lg'></div>
+  <div
+    class='from-primary-400/10 to-primary-600/5 absolute -right-4 -top-4 h-24 w-24 rounded-full bg-gradient-to-br blur-xl'
+  >
+  </div>
+  <div
+    class='absolute -bottom-6 -left-2 h-16 w-16 rounded-full bg-gradient-to-tr from-emerald-400/10 to-emerald-600/5 blur-lg'
+  >
+  </div>
 </div>

@@ -29,4 +29,11 @@ export const timelineData: TimelineItem[] = [
     icon: Graduation,
     type: 'education'
   },
+  {
+    year: '2025',
+    title: 'Software Developer in GIS',
+    description: 'Handling large scale mobility data & backend @ Arima Data.',
+    icon: Briefcase,
+    type: 'work'
+  },
 ]
