@@ -1,0 +1,152 @@
+---
+import { ArrowOutward } from '@icons/ArrowOutward'
+
+import SEO from '@/components/SEO.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+
+const examples = [
+  {
+    href: '/ggr444/trajectory/',
+    number: '01',
+    title: 'What is a line on a map hiding?',
+    subtitle: 'One person, one day, one GPS track',
+    description:
+      'A single 24-hour GPS trajectory, first drawn the usual way as a line, then replayed in time, lifted into a space-time path, and finally joined to land use and points of interest so every stop has a name and every move has a mode.',
+    steps: [
+      'A trajectory drawn the usual way',
+      'Add time: order, direction, stops',
+      'The space-time path',
+      'Speed: derived, not measured',
+      'Spatial context: what is at each stop?',
+      'From a line to a story'
+    ]
+  },
+  {
+    href: '/ggr444/population_mobility/',
+    number: '02',
+    title: 'From 400 phones to one place',
+    subtitle:
+      'Many trajectories, one day, and what a place can learn from them',
+    description:
+      'Four hundred people carry a phone for one day. Split each day into stays and trips, join the stays to places and census tracts, then flip the unit of analysis from the person to the place: who visits, where they come from, and where they go next.',
+    steps: [
+      'One day of location data for a city',
+      'One person: break the day into stays and trips',
+      'Everyone: stays, in order',
+      'Join the stays to places',
+      'Flip it around: look at one place',
+      'Who visits: home tracts and the census',
+      'Where they came from, where they went next'
+    ]
+  },
+  {
+    href: '/ggr444/clustering/',
+    number: '03',
+    title: 'Does time change the answer?',
+    subtitle: 'Spatial vs space-time clustering',
+    description:
+      'One year of incident reports across a city. DBSCAN on x and y finds the hotspots, then the same points are watched month by month and stacked into a space-time cube. ST-DBSCAN gives a different answer, and the generating process shows which one was right.',
+    steps: [
+      'Where are the hotspots?',
+      'Spatial clustering: DBSCAN on x and y',
+      'Same points, one month at a time',
+      'The space-time cube',
+      'Space-time clustering: ST-DBSCAN',
+      'Same data, two answers'
+    ]
+  }
+]
+
+const title = 'GGR444 · Spatial vs space-time analysis'
+const description =
+  'Three interactive examples showing what changes when time is added to spatial analysis: a single GPS track, a population of trajectories, and event clustering.'
+---
+
+<BaseLayout class='!max-w-[1024px]'>
+  <SEO slot='seo' title={title} description={description} />
+
+  <div class='mb-8 mt-8'>
+    <a
+      href='/academic'
+      class='text-theme-secondary transition-colors hover:text-theme-primary'
+      >← Back to Home</a
+    >
+  </div>
+
+  <section class='mt-8 sm:mt-16'>
+    <div class='mb-12 sm:mb-16'>
+      <p
+        class='mb-3 font-mono text-xs uppercase tracking-[0.2em] text-theme-tertiary'
+      >
+        GGR444 · Teaching examples
+      </p>
+      <h1
+        class='font-heading text-[clamp(2.25rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight'
+      >
+        Spatial vs space-time analysis
+      </h1>
+      <p class='mt-4 max-w-2xl text-lg leading-relaxed text-theme-secondary'>
+        Three interactive walkthroughs built on the same question: what does a
+        spatial analysis miss, and what becomes visible once time is treated as
+        a dimension rather than a filter? Each one moves step by step from the
+        familiar map view to a space-time view of the same data.
+      </p>
+      <p class='mt-3 max-w-2xl text-sm text-theme-tertiary'>
+        The examples are self-contained pages with interactive Plotly figures.
+        They work best on a laptop or desktop screen.
+      </p>
+    </div>
+
+    <div class='grid gap-8'>
+      {
+        examples.map((ex) => (
+          <article class='group relative'>
+            <a
+              href={ex.href}
+              data-astro-reload
+              data-astro-prefetch='false'
+              class='shadow-theme-sm hover:shadow-theme-md block rounded-xl border border-neutral-200 bg-theme-elevated p-6 no-underline transition-all hover:-translate-y-0.5 hover:border-neutral-400 sm:p-8'
+            >
+              <div class='flex items-center gap-3'>
+                <span class='font-mono text-xs text-theme-tertiary'>
+                  {ex.number}
+                </span>
+                <div class='h-px flex-1 bg-neutral-200' />
+                <span class='text-sm text-theme-tertiary'>
+                  {ex.steps.length} steps
+                </span>
+              </div>
+
+              <h2 class='font-heading mt-4 text-2xl font-bold leading-tight text-theme-primary sm:text-3xl'>
+                {ex.title}
+              </h2>
+              <p class='mt-1 text-sm text-theme-tertiary'>{ex.subtitle}</p>
+
+              <p class='mt-4 max-w-2xl leading-relaxed text-theme-secondary'>
+                {ex.description}
+              </p>
+
+              <ol class='mt-5 grid gap-x-6 gap-y-1 text-sm text-theme-secondary sm:grid-cols-2'>
+                {ex.steps.map((step, i) => (
+                  <li class='flex gap-2'>
+                    <span class='w-4 shrink-0 font-mono text-xs text-theme-tertiary'>
+                      {i + 1}
+                    </span>
+                    <span>{step}</span>
+                  </li>
+                ))}
+              </ol>
+
+              <div class='mt-6 flex items-center gap-2'>
+                <span class='text-sm font-medium text-theme-secondary transition-colors group-hover:text-theme-primary'>
+                  Open example
+                </span>
+                <ArrowOutward className='size-4 text-theme-tertiary transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-theme-primary' />
+              </div>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>
