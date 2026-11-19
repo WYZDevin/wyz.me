@@ -1,0 +1,4 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "npx --yes @yarnpkg/cli-dist@4.9.2 install --immutable"
+}
