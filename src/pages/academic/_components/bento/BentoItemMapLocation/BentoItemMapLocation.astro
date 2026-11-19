@@ -1,0 +1,35 @@
+---
+import Map from './BentoItemMapLocation'
+---
+
+<figure
+  id='toronto-map'
+  class='relative isolate min-h-[280px] flex-1 overflow-hidden rounded-3xl bg-[#e2edf3]'
+>
+  <!-- The preview uses the City of Toronto's Neighbourhoods and Water Body data. -->
+  <img
+    src='/assets/toronto-map.webp'
+    alt='Neighbourhood map of Toronto and the Lake Ontario waterfront'
+    width='960'
+    height='640'
+    loading='lazy'
+    class='absolute inset-0 size-full object-cover'
+  />
+  <p
+    class='absolute inset-x-0 bottom-0 bg-white/90 px-2 py-0.5 text-[11px] text-zinc-700'
+  >
+    Contains information licensed under the
+    <a href='https://open.toronto.ca/open-data-licence/' class='underline'>
+      Open Government Licence – Toronto
+    </a>.
+  </p>
+  <Map client:only='react' />
+  <figcaption class='absolute right-3 top-3 z-20'>
+    <a
+      href='https://www.openstreetmap.org/?mlat=43.6532&mlon=-79.3832#map=12/43.6532/-79.3832'
+      class='block rounded-full bg-white px-3 py-1.5 text-sm font-medium text-zinc-900 shadow hover:underline'
+    >
+      Toronto, Ontario
+    </a>
+  </figcaption>
+</figure>

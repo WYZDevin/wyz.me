@@ -3,191 +3,49 @@ import { Timer } from '@/components/icons/Timer'
 
 import BentoBadge from '../BentoBadge'
 import { timelineData } from './timeline'
-
-interface Props {
-  class?: string
-}
-
-const { class: className } = Astro.props
-
-// Sort timeline data by year automatically
-const sortedTimelineData = [...timelineData].sort(
-  (a, b) => parseInt(a.year) - parseInt(b.year)
-)
-
-// Calculate dynamic spacing for auto-fit
-const itemCount = sortedTimelineData.length
-const containerPadding = 48 // p-6 = 24px each side
 ---
 
-<div class:list={['relative size-full overflow-hidden', className]}>
+<section aria-label='Education and experience' class='flex flex-col gap-4 p-5'>
   <BentoBadge
-    className={{ component: 'absolute left-4 top-4 z-10' }}
+    className={{ component: 'w-fit' }}
     icon={Timer}
     text='Education & experience'
   />
 
-  <div class='flex h-full items-center p-6 pt-16'>
-    <div class='timeline-wrapper w-full overflow-hidden'>
-      <div
-        class='timeline-container scrollbar-hide relative flex pb-4'
-        tabindex='0'
-        role='region'
-        aria-label='Education and experience timeline; scroll horizontally for more'
-        style={`--item-count: ${itemCount}; --container-padding: ${containerPadding}px;`}
-      >
-        <!-- Continuous timeline line -->
-        <div
-          class='timeline-continuous-line absolute top-6 h-px bg-gradient-to-r from-emerald-400/60 via-emerald-400/40 to-emerald-400/60'
-        >
-        </div>
-
-        {
-          sortedTimelineData.map((item, index) => (
-            <div
-              class='timeline-item w-48 shrink-0'
-              style={`animation-delay: ${index * 150}ms`}
-            >
-              <div class='relative'>
-                <div class='timeline-dot theme-timeline-dot relative z-10 mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full'>
-                  <item.icon className='h-6 w-6 text-theme-inverse' />
-                </div>
-
-                <div class='timeline-content text-center'>
-                  <div class='timeline-year theme-year-badge mx-auto mb-3 w-fit rounded-lg px-3 py-1.5'>
-                    <span class='text-lg font-bold drop-shadow-sm accent-primary'>
-                      {item.year}
-                    </span>
-                  </div>
-                  <h3 class='mb-2 text-sm font-semibold leading-tight text-theme-primary'>
-                    {item.title}
-                  </h3>
-                  <div class='prose'>
-                    <p
-                      class='text-xs leading-relaxed text-theme-secondary'
-                      set:html={item.description}
-                    />
-                  </div>
-                </div>
-              </div>
+  <ol class='timeline space-y-3'>
+    {
+      timelineData.map(({ period, title, description, icon: Icon }) => (
+        <li class='relative grid grid-cols-[2rem_minmax(0,1fr)] items-start gap-x-3'>
+          <span
+            aria-hidden='true'
+            class='theme-timeline-dot relative grid size-8 place-items-center rounded-full'
+          >
+            <Icon className='size-4 text-theme-inverse' />
+          </span>
+          <div>
+            <div class='flex flex-wrap items-baseline justify-between gap-x-3'>
+              <h3 class='text-sm font-semibold text-theme-primary'>{title}</h3>
+              <span class='text-xs font-medium text-theme-secondary'>
+                {period}
+              </span>
             </div>
-          ))
-        }
-      </div>
-    </div>
-  </div>
-</div>
+            <p class='mt-0.5 text-sm leading-snug text-theme-secondary'>
+              {description}
+            </p>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</section>
 
 <style>
-  .timeline-wrapper {
-    container-type: inline-size;
-  }
-
-  .timeline-container {
-    --item-width: 192px;
-    --min-gap: 16px;
-
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-
-    /* Dynamic spacing calculation */
-    --available-width: 100%;
-    --total-item-width: calc(var(--item-count) * var(--item-width));
-    --gap-count: calc(var(--item-count) - 1);
-    --calculated-gap: max(
-      var(--min-gap),
-      calc(
-        (100cqw - var(--container-padding) - var(--total-item-width)) /
-          var(--gap-count)
-      )
-    );
-
-    gap: var(--calculated-gap);
-
-    /* If items don't fit, enable horizontal scroll */
-    overflow-x: auto;
-  }
-
-  .timeline-container::-webkit-scrollbar {
-    display: none;
-  }
-
-  .timeline-item {
-    width: var(--item-width);
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease-out forwards;
-  }
-
-  .timeline-dot {
-    position: relative;
-    transition: all 0.3s ease;
-  }
-
-  .timeline-dot:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
-  }
-
-  .timeline-continuous-line {
-    height: 3px;
+  .timeline li:not(:last-child)::before {
+    position: absolute;
+    inset-block: 1rem -1.75rem;
+    inset-inline-start: calc(1rem - 1px);
+    width: 2px;
     background: var(--timeline-line);
-    box-shadow: var(--shadow-sm);
-    border-radius: 2px;
-
-    /* Dynamic line width calculation */
-    left: calc(var(--item-width) / 2);
-    width: calc(
-      (var(--item-count) - 1) * (var(--item-width) + var(--calculated-gap))
-    );
-  }
-
-  .timeline-year {
-    transition: all 0.3s ease;
-  }
-
-  .timeline-year:hover {
-    transform: scale(1.05);
-    background: var(--primary-100);
-    border-color: var(--primary-300);
-    box-shadow: var(--shadow-md);
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .timeline-container {
-      --item-width: 180px;
-      --min-gap: 12px;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .timeline-container {
-      --item-width: 160px;
-      --min-gap: 8px;
-    }
-
-    .timeline-item {
-      width: 160px;
-    }
-  }
-
-  /* Fallback for browsers that don't support container queries */
-  @supports not (width: 100cqw) {
-    .timeline-container {
-      --calculated-gap: var(--min-gap);
-      overflow-x: auto;
-    }
+    content: '';
   }
 </style>

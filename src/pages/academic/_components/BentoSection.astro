@@ -4,9 +4,9 @@ import { cn } from '@/lib/utils'
 import BentoCard from './bento/BentoCard'
 import BentoItemAboutMe from './bento/BentoItemAboutMe'
 import BentoItemGithubActivity from './bento/BentoItemGithubActivity'
+import BentoItemMapLocation from './bento/BentoItemMapLocation/BentoItemMapLocation.astro'
 import BentoItemTechStack from './bento/BentoItemTechStack'
 import BentoItemTimeline from './bento/BentoItemTimeline/BentoItemTimeline.astro'
-import BentoItemMapLocation from './bento/BentoItemMapLocation/BentoItemMapLocation'
 ---
 
 <script>
@@ -46,7 +46,7 @@ import BentoItemMapLocation from './bento/BentoItemMapLocation/BentoItemMapLocat
     <BentoItemAboutMe />
   </BentoCard>
 
-  <!-- Timeline - Wide horizontal card -->
+  <!-- Education and experience -->
   <BentoCard
     className={cn(
       'h-full min-h-[200px]',
@@ -62,10 +62,10 @@ import BentoItemMapLocation from './bento/BentoItemMapLocation/BentoItemMapLocat
     className={cn(
       'h-full min-h-[280px]',
       'col-span-7 row-span-1',
-      'max-lg:col-span-4 max-lg:row-span-2'
+      'max-lg:col-span-4'
     )}
   >
-    <BentoItemMapLocation className='rounded-3xl' client:only='react' />
+    <BentoItemMapLocation />
   </BentoCard>
 
   <!-- Github Activity - Medium card -->
@@ -81,7 +81,6 @@ import BentoItemMapLocation from './bento/BentoItemMapLocation/BentoItemMapLocat
 
   <!-- Tech Stack - Medium card -->
   <BentoCard
-    client:visible
     className={cn(
       'h-full min-h-[240px]',
       'col-span-6 row-span-1',

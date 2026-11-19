@@ -5,7 +5,7 @@ import { Graduation } from '@/components/icons/Graduation'
 import { Pencil } from '@/components/icons/Pencil'
 
 export interface TimelineItem {
-  year: string
+  period: string
   title: string
   description: string
   icon: ComponentType<SVGProps<SVGSVGElement>>
@@ -14,7 +14,7 @@ export interface TimelineItem {
 
 export const timelineData: TimelineItem[] = [
   {
-    year: '2018–2022',
+    period: '2018–2022',
     title: 'Honours BSc',
     description:
       'Computer Science & Geospatial Data Science, University of Toronto.',
@@ -22,7 +22,7 @@ export const timelineData: TimelineItem[] = [
     type: 'education'
   },
   {
-    year: '2022–2024',
+    period: '2022–2024',
     title: 'MSc (Geography)',
     description:
       'University of Toronto. Research on urban noise and environmental exposure.',
@@ -30,25 +30,24 @@ export const timelineData: TimelineItem[] = [
     type: 'education'
   },
   {
-    year: '2024–present',
+    period: '2024–present',
     title: 'PhD (Geography)',
     description: 'University of Toronto. Expected completion: June 2028.',
     icon: Graduation,
     type: 'education'
   },
   {
-    year: '2025–2026',
+    period: 'Aug 2025–Apr 2026',
     title: 'GIS Developer',
     description:
-      'Arima Data · Aug 2025–Apr 2026. Mobility pipelines and geospatial visualization.',
+      'Arima Data · Mobility pipelines and geospatial visualization.',
     icon: Briefcase,
     type: 'work'
   },
   {
-    year: '2026',
+    period: 'Sep–Dec 2026',
     title: 'Course Instructor',
-    description:
-      'Space Time Data Analysis, University of Toronto · Sep–Dec 2026.',
+    description: 'Space Time Data Analysis, University of Toronto.',
     icon: Pencil,
     type: 'work'
   }
