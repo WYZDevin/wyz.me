@@ -9,7 +9,7 @@ const { class: className } = Astro.props
 ---
 
 <!-- keyboard source: https://codepen.io/HaydnComley/pen/yLdpLbJ -->
-<div class:list={['max-xs:flex-col flex items-start text-center', className]}>
+<div class:list={['flex flex-wrap items-start gap-y-6 text-center', className]}>
   <div class='board'>
     {
       SOCIAL_MEDIA_DATA.map(({ name, href, icon: Icon }) => (

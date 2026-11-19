@@ -1,26 +1,28 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import { mainWebsite } from '@/lib/structuredData'
+import { mainWebsite, personSchema } from '@/lib/structuredData'
 
 import BentoSection from './_components/BentoSection.astro'
 import Decorator from './_components/Decorator.astro'
 import HeroSection from './_components/HeroSection.astro'
 import ProjectsSection from './_components/ProjectsSection.astro'
+import PublicationsSection from './_components/PublicationsSection.astro'
+import ResearchSection from './_components/ResearchSection.astro'
 ---
-
-
 
 <BaseLayout>
   <Decorator slot='decorator' />
   <script
     is:inline
     type='application/ld+json'
-    set:html={JSON.stringify(mainWebsite)}
+    set:html={JSON.stringify([mainWebsite, personSchema])}
     slot='head'
   />
   <HeroSection />
 
   <BentoSection />
+  <ResearchSection />
+  <PublicationsSection />
   <ProjectsSection />
 </BaseLayout>
 

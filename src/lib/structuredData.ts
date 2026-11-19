@@ -1,15 +1,14 @@
 import type { CollectionEntry } from 'astro:content'
 import type { Article, Person, WebSite, WithContext } from 'schema-dts'
 
-import { projectMetaData } from './metaData'
+import { mainMetaData, projectMetaData } from './metaData'
 
 export const mainWebsite: WithContext<WebSite> = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   url: import.meta.env.SITE,
-  name: '@Devin Yongzhao Wu',
-  description:
-    'From Figma to TypeScript, I craft seamless web and mobile experiences as a software engineer, based in Jakarta, Indonesia.',
+  name: mainMetaData.title,
+  description: mainMetaData.description,
   inLanguage: 'en_US'
 }
 
@@ -25,19 +24,27 @@ export const projectWebsite: WithContext<WebSite> = {
 export const personSchema: WithContext<Person> = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Devin',
-  url: 'https://wyz.github.io',
+  name: 'Devin Yongzhao Wu',
+  url: 'https://www.wyz.me/academic',
   // image: `${import.meta.env.SITE}${avatar.src}`,
   sameAs: [
     'https://www.twitter.com/WYZDevin',
-    'https://www.linkedin.com/in/devin-yongzhao-wu/'
+    'https://www.linkedin.com/in/devin-yongzhao-wu/',
+    'https://github.com/WYZDevin',
+    'https://scholar.google.com/citations?user=Y2Y4HiMAAAAJ'
   ],
-  jobTitle: 'Software engineer'
-  // worksFor: {
-  //   '@type': 'Organization',
-  //   name: 'Grafana',
-  //   url: 'https://grafana.com',
-  // },
+  jobTitle: 'PhD Researcher in Geography',
+  affiliation: {
+    '@type': 'CollegeOrUniversity',
+    name: 'University of Toronto'
+  },
+  knowsAbout: [
+    'GeoAI',
+    'Spatiotemporal machine learning',
+    'Mobility modeling',
+    'Environmental exposure',
+    'Geospatial data science'
+  ]
 }
 
 export function getProjectSchema(post: CollectionEntry<'projects'>) {

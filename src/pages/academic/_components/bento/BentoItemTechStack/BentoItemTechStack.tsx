@@ -19,7 +19,13 @@ const BentoItemTechStack = () => {
             style={{ '--duration': '20s' } as React.CSSProperties}
           >
             {techStacks.map(({ icon: Icon, name }) => (
-              <span key={name} className='inline-block px-4'>
+              <span
+                key={name}
+                title={name}
+                role='img'
+                aria-label={name}
+                className='inline-block px-4'
+              >
                 <Icon className='h-12 w-12 md:h-8 md:w-8' />
               </span>
             ))}
@@ -29,10 +35,13 @@ const BentoItemTechStack = () => {
         </div>
       </div>
       <div className='space-y-2'>
-        <p className='text-lg'>Tech stacks I'm familiar with</p>
-        <p className='text-sm text-slate-400'>
-          Primarily focused on the JavaScript ecosystem, but always eager to
-          explore and learn new technologies.
+        <p className='text-lg'>Tools I work with</p>
+        <p className='text-sm text-theme-secondary'>
+          Python, SQL, TypeScript, and C++ for geospatial analysis, machine
+          learning, cloud data pipelines, and interactive visualization.
+        </p>
+        <p className='text-sm text-theme-secondary'>
+          GeoPandas · PyTorch · BigQuery / GCP · PostGIS · deck.gl
         </p>
       </div>
     </div>

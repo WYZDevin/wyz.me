@@ -1,5 +1,6 @@
 ---
 import { HandWaving } from '@/components/icons/HandWaving'
+
 import BentoBadge from '../BentoBadge'
 
 interface Props {
@@ -26,18 +27,18 @@ const { class: className } = Astro.props
     <!-- Main intro -->
     <div class='space-y-4'>
       <h2 class='text-2xl font-semibold leading-tight text-theme-primary'>
-        Hi, I'm Devin
+        Devin Yongzhao Wu
       </h2>
       <div class='prose space-y-3'>
         <p class='text-base leading-relaxed text-theme-secondary'>
-          PhD student exploring GeoAI at University of Toronto, passionate about
-          turning complex spatial data into meaningful insights.
+          I study movement, urban environments, and environmental exposure. My
+          research interests include spatiotemporal machine learning, multimodal
+          GeoAI, and connecting language models with geospatial tools.
         </p>
         <p class='text-base leading-relaxed text-theme-secondary'>
-          Beyond research, I am a Software Developer at Arima Data, where I
-          blend software engineering with data science—handling large-scale
-          mobility data, designing location intelligence backends, and building
-          spatial-temporal visualizations.
+          Previously, as a GIS Developer at Arima Data, I built cloud pipelines
+          processing over 18 billion GPS records, optimized mobility analytics,
+          and developed interactive 3D trajectory visualizations.
         </p>
       </div>
     </div>
@@ -45,32 +46,37 @@ const { class: className } = Astro.props
     <!-- Quick stats/highlights -->
     <div class='grid grid-cols-2 gap-4 pt-4'>
       <div class='space-y-1'>
-        <div class='text-lg font-semibold text-theme-primary'>PhD Student</div>
+        <div class='text-lg font-semibold text-theme-primary'>
+          PhD Researcher
+        </div>
         <div class='text-xs text-theme-secondary'>University of Toronto</div>
+        <div class='text-xs text-theme-secondary'>Expected June 2028</div>
       </div>
       <div class='space-y-1'>
         <div class='text-lg font-semibold text-theme-primary'>
           Research Focus
         </div>
-        <div class='text-xs text-theme-secondary'>Spatial Intelligence</div>
-        <div class='text-xs text-theme-secondary'>Spatial Modeling</div>
-        <div class='text-xs text-theme-secondary'>GeoAI</div>
-        <div class='text-xs text-theme-secondary'>Noise Pollution</div>
+        <div class='text-xs text-theme-secondary'>Mobility Modeling</div>
+        <div class='text-xs text-theme-secondary'>Environmental Exposure</div>
+        <div class='text-xs text-theme-secondary'>Space-Time ML</div>
+        <div class='text-xs text-theme-secondary'>LLMs + Geospatial Tools</div>
       </div>
       <div class='col-span-2 space-y-1'>
         <div class='text-lg font-semibold text-theme-primary'>
-          Software Developer / Geospatial Data Scientist
+          Teaching · Fall 2026
         </div>
         <div class='text-xs text-theme-secondary'>
-          I tell people I'm a software developer, but 1/2 of my time were spent
-          to process & optimize large scale mobility data, and 1/2 of my time
-          build backend services to serve the data (in an efficient way).
+          Course instructor for Space Time Data Analysis at the University of
+          Toronto, emphasizing reproducible workflows, critical interpretation,
+          and responsible use of AI-assisted coding.
         </div>
+        <a
+          href='/ggr444/'
+          class='inline-block text-sm font-medium underline underline-offset-4 accent-primary'
+        >
+          Explore course examples →
+        </a>
       </div>
-      <!-- <div class='space-y-1'>
-        <div class='text-lg font-semibold text-theme-primary'>Open to</div>
-        <div class='text-xs text-theme-secondary'>Collaborations</div>
-      </div> -->
     </div>
   </div>
 

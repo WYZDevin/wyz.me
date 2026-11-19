@@ -1,10 +1,8 @@
 import type { ComponentType, SVGProps } from 'react'
 
 import { Briefcase } from '@/components/icons/Briefcase'
-import { Code } from '@/components/icons/Code'
 import { Graduation } from '@/components/icons/Graduation'
 import { Pencil } from '@/components/icons/Pencil'
-import { Trophy } from '@/components/icons/Trophy'
 
 export interface TimelineItem {
   year: string
@@ -16,24 +14,42 @@ export interface TimelineItem {
 
 export const timelineData: TimelineItem[] = [
   {
-    year: '2022',
+    year: '2018–2022',
+    title: 'Honours BSc',
+    description:
+      'Computer Science & Geospatial Data Science, University of Toronto.',
+    icon: Graduation,
+    type: 'education'
+  },
+  {
+    year: '2022–2024',
     title: 'MSc (Geography)',
-    description: `Graduated from BSc (Major in CS & GIS) @ UofT.`,
+    description:
+      'University of Toronto. Research on urban noise and environmental exposure.',
     icon: Graduation,
     type: 'education'
   },
   {
-    year: '2024',
+    year: '2024–present',
     title: 'PhD (Geography)',
-    description: 'Started my PhD in Geography @ UofT.',
+    description: 'University of Toronto. Expected completion: June 2028.',
     icon: Graduation,
     type: 'education'
   },
   {
-    year: '2025',
-    title: 'Software Developer in GIS',
-    description: 'Handling large scale mobility data & backend @ Arima Data.',
+    year: '2025–2026',
+    title: 'GIS Developer',
+    description:
+      'Arima Data · Aug 2025–Apr 2026. Mobility pipelines and geospatial visualization.',
     icon: Briefcase,
     type: 'work'
   },
+  {
+    year: '2026',
+    title: 'Course Instructor',
+    description:
+      'Space Time Data Analysis, University of Toronto · Sep–Dec 2026.',
+    icon: Pencil,
+    type: 'work'
+  }
 ]

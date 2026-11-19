@@ -1,0 +1,60 @@
+---
+const researchHighlights = [
+  {
+    title: 'SVI2Sound',
+    area: 'Multimodal GeoAI',
+    description:
+      'Generating urban soundscapes from street-view imagery by connecting visual representations with audio generation models, with evaluation across cities and sound categories.'
+  },
+  {
+    title: 'Probabilistic risk modeling',
+    area: 'Space-time ML & explainable AI',
+    description:
+      'Modeling urban noise distributions with NGBoost and developing Prob-SHAP and Prob-ALE to explain how environmental features contribute to the probability of exceeding noise thresholds.'
+  },
+  {
+    title: 'Remoteness & accessibility',
+    area: 'Mobility & network analysis',
+    description:
+      'Measuring drive-time remoteness from 5.77 million populated U.S. Census blocks across 3,143 counties and county equivalents using geospatial pipelines and efficient road-network routing.'
+  },
+  {
+    title: 'ChronoGeoLab',
+    area: 'Research software',
+    description:
+      'An open-source toolbox for exploring GPS trajectories in 3D, detecting stay points, analyzing space-time density, and modeling network reachability, with reproducible workflows from data import to export.',
+    href: 'https://github.com/WYZDevin/ChronoGeoLab'
+  }
+]
+---
+
+<section id='research' aria-labelledby='research-heading' class='pt-16'>
+  <div class='mb-8 max-w-2xl space-y-3'>
+    <h2 id='research-heading' class='text-3xl font-semibold text-theme-primary'>
+      Research highlights
+    </h2>
+    <p class='leading-relaxed text-theme-secondary'>
+      Recent research and tools at the intersection of geography, machine
+      learning, and software engineering.
+    </p>
+  </div>
+  <div class='grid gap-6 md:grid-cols-2'>
+    {
+      researchHighlights.map(({ title, area, description, href }) => (
+        <article class='rounded-3xl border border-theme-medium bg-theme-elevated p-6'>
+          <p class='mb-3 text-sm font-medium accent-primary'>{area}</p>
+          <h3 class='mb-3 text-xl font-semibold text-theme-primary'>{title}</h3>
+          <p class='leading-relaxed text-theme-secondary'>{description}</p>
+          {href && (
+            <a
+              href={href}
+              class='mt-4 inline-block font-medium underline underline-offset-4 accent-primary'
+            >
+              Explore ChronoGeoLab →
+            </a>
+          )}
+        </article>
+      ))
+    }
+  </div>
+</section>

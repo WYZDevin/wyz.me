@@ -35,9 +35,9 @@ type MetaData = z.output<typeof metaDataSchema>
 type MetaDataInput = z.input<typeof metaDataSchema>
 
 const _mainMetaData: MetaDataInput = {
-  title: '@Devin Yongzhao Wu',
+  title: 'Devin Yongzhao Wu | GeoAI & Geospatial Data Science',
   description:
-    'A dedicated problem-solver who thrives{n} on research and building.'
+    'PhD researcher at the University of Toronto working on GeoAI, spatiotemporal machine learning, large-scale mobility modeling, and environmental exposure.'
 }
 export const mainMetaData = metaDataSchema.parse(_mainMetaData)
 

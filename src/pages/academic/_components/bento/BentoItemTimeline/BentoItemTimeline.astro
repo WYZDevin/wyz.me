@@ -17,22 +17,24 @@ const sortedTimelineData = [...timelineData].sort(
 
 // Calculate dynamic spacing for auto-fit
 const itemCount = sortedTimelineData.length
-const itemWidth = 192 // w-48 = 192px
 const containerPadding = 48 // p-6 = 24px each side
-const minGap = 16 // minimum gap between items
 ---
 
 <div class:list={['relative size-full overflow-hidden', className]}>
   <BentoBadge
     className={{ component: 'absolute left-4 top-4 z-10' }}
     icon={Timer}
+    text='Education & experience'
   />
 
   <div class='flex h-full items-center p-6 pt-16'>
     <div class='timeline-wrapper w-full overflow-hidden'>
       <div
         class='timeline-container scrollbar-hide relative flex pb-4'
-        style={`--item-count: ${itemCount}; --item-width: ${itemWidth}px; --container-padding: ${containerPadding}px; --min-gap: ${minGap}px;`}
+        tabindex='0'
+        role='region'
+        aria-label='Education and experience timeline; scroll horizontally for more'
+        style={`--item-count: ${itemCount}; --container-padding: ${containerPadding}px;`}
       >
         <!-- Continuous timeline line -->
         <div
@@ -43,7 +45,7 @@ const minGap = 16 // minimum gap between items
         {
           sortedTimelineData.map((item, index) => (
             <div
-              class='timeline-item w-48'
+              class='timeline-item w-48 shrink-0'
               style={`animation-delay: ${index * 150}ms`}
             >
               <div class='relative'>
@@ -82,6 +84,9 @@ const minGap = 16 // minimum gap between items
   }
 
   .timeline-container {
+    --item-width: 192px;
+    --min-gap: 16px;
+
     scrollbar-width: none;
     -ms-overflow-style: none;
 
@@ -108,6 +113,7 @@ const minGap = 16 // minimum gap between items
   }
 
   .timeline-item {
+    width: var(--item-width);
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.6s ease-out forwards;
@@ -131,8 +137,9 @@ const minGap = 16 // minimum gap between items
 
     /* Dynamic line width calculation */
     left: calc(var(--item-width) / 2);
-    right: calc(var(--item-width) / 2);
-    width: calc(100% - var(--item-width));
+    width: calc(
+      (var(--item-count) - 1) * (var(--item-width) + var(--calculated-gap))
+    );
   }
 
   .timeline-year {

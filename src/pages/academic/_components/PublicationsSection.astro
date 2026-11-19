@@ -1,0 +1,110 @@
+---
+const publications = [
+  {
+    year: 2026,
+    title:
+      'Assessing the association between street view–derived perceived liveliness and street thefts',
+    authors:
+      'Zhou, H., Liu, L., Lan, M., Wu, D. Y., Chen, Z., Gu, X., Su, Z., Chen, D., & Huang, Q.',
+    venue: 'Environment and Planning B: Urban Analytics and City Science',
+    doi: '10.1177/23998083261502943'
+  },
+  {
+    year: 2026,
+    title:
+      'Investigating the relationship between psychological stress and physical activity through individual-based geographic ecological momentary assessment',
+    authors: 'Ge, H., Wang, J., Wu, D. Y., & Zhou, H.',
+    venue: 'Social Science & Medicine',
+    doi: '10.1016/j.socscimed.2026.119411'
+  },
+  {
+    year: 2026,
+    title:
+      'Associating the visual built environment with active transport: An analytical approach using integrated individual behavior data and street imagery',
+    authors: 'Zhou, H., Wang, J., Wilson, K., Wu, D. Y., & Ge, H.',
+    venue: 'Annals of the American Association of Geographers',
+    doi: '10.1080/24694452.2025.2599844'
+  },
+  {
+    year: 2025,
+    title:
+      'Modeling spatial and temporal urban environmental noise using Street View Imagery and machine learning',
+    authors: 'Wu, D. Y., & Wang, J.',
+    venue: 'Computers, Environment and Urban Systems',
+    doi: '10.1016/j.compenvurbsys.2025.102327'
+  },
+  {
+    year: 2025,
+    title:
+      'Using street view imagery and localized crowdsourcing survey to model perceived safety of the visual built environment by gender',
+    authors: 'Zhou, H., Wang, J., Wilson, K., Widener, M., Wu, D. Y., & Xu, E.',
+    venue:
+      'International Journal of Applied Earth Observation and Geoinformation',
+    doi: '10.1016/j.jag.2025.104421'
+  },
+  {
+    year: 2024,
+    title:
+      'Analyzing urban crime through Street View Imagery: Insights from Urban Micro Built Environment and Perceptions',
+    authors: 'Wu, D. Y., & Wang, J.',
+    venue: 'Urban Science',
+    doi: '10.3390/urbansci8040247'
+  }
+]
+---
+
+<section id='publications' aria-labelledby='publications-heading' class='pt-16'>
+  <div class='mb-8 flex flex-wrap items-center justify-between gap-4'>
+    <h2
+      id='publications-heading'
+      class='text-3xl font-semibold text-theme-primary'
+    >
+      Publications
+    </h2>
+    <a
+      href='https://scholar.google.com/citations?user=Y2Y4HiMAAAAJ&hl=en'
+      class='font-medium underline underline-offset-4 accent-primary'
+    >
+      Google Scholar →
+    </a>
+  </div>
+  <ol class='space-y-6'>
+    {
+      publications.map(({ year, title, authors, venue, doi }) => (
+        <li class='border-b border-theme-light pb-6 sm:grid sm:grid-cols-[4rem_1fr] sm:gap-4'>
+          <span class='text-sm font-semibold accent-primary'>{year}</span>
+          <div class='mt-2 space-y-2 sm:mt-0'>
+            <h3 class='text-lg font-medium leading-snug text-theme-primary'>
+              <a href={`https://doi.org/${doi}`} class='hover:underline'>
+                {title}
+              </a>
+            </h3>
+            <p class='text-sm leading-relaxed text-theme-secondary'>
+              {authors}
+            </p>
+            <p class='text-sm italic text-theme-secondary'>{venue}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</section>
+
+<section aria-labelledby='recognition-heading' class='pt-12'>
+  <h2
+    id='recognition-heading'
+    class='mb-6 text-2xl font-semibold text-theme-primary'
+  >
+    Selected recognition
+  </h2>
+  <ul class='space-y-3 leading-relaxed text-theme-secondary'>
+    <li>
+      <span class='font-medium text-theme-primary'>2026</span> · AAG John Odland
+      Award Paper Competition — Finalist
+    </li>
+    <li>
+      <span class='font-medium text-theme-primary'>2025</span> · Marble Fund Award
+      for Innovative Master's Research — Honorable Mention
+    </li>
+  </ul>
+</section>

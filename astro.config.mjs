@@ -34,7 +34,7 @@ dotenv.config()
 export default defineConfig({
   adapter,
   output: 'static',
-  site: 'https://wyz.github.io',
+  site: 'https://www.wyz.me',
 
   markdown: {
     shikiConfig: {
