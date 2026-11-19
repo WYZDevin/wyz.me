@@ -1,60 +1,39 @@
-import { ArcGIS } from '@icons/ArcGIS'
-import { AWS } from '@icons/AWS'
-import { Docker } from '@icons/Docker'
-import { PostGIS } from '@icons/PostGIS'
-import { Python } from '@icons/Python'
-import { PyTorch } from '@icons/PyTorch'
-import { ReactJs } from '@icons/ReactJs'
-import { TypeScript } from '@icons/TypeScript'
-import type { JSX, SVGProps } from 'react'
-
-type TechStack = {
-  name: string
-  icon: (props: SVGProps<SVGSVGElement>) => JSX.Element
-  description: string
+type TechStackGroup = {
+  category: string
+  skills: string[]
 }
 
-const techStacks: TechStack[] = [
+const techStackGroups: TechStackGroup[] = [
   {
-    name: 'Python',
-    icon: Python,
-    description: 'Geospatial analysis, machine learning, and data pipelines.'
+    category: 'Languages',
+    skills: ['Python', 'SQL', 'JavaScript', 'TypeScript', 'C++', 'Java']
   },
   {
-    name: 'PyTorch',
-    icon: PyTorch,
-    description: 'Deep learning and multimodal research.'
+    category: 'Machine learning & data science',
+    skills: ['PyTorch', 'TensorFlow.js', 'JAX', 'LangChain']
   },
   {
-    name: 'PostGIS',
-    icon: PostGIS,
-    description: 'Spatial data storage, queries, and analysis.'
+    category: 'Data & cloud',
+    skills: ['BigQuery', 'GCP', 'AWS']
   },
   {
-    name: 'ArcGIS',
-    icon: ArcGIS,
-    description: 'Geographic analysis, cartography, and geoprocessing.'
+    category: 'Geospatial & systems',
+    skills: [
+      'PostGIS',
+      'QGIS',
+      'ArcGIS',
+      'GeoPandas',
+      'ArcPy',
+      'Git',
+      'Linux',
+      'Docker',
+      'Kubernetes'
+    ]
   },
   {
-    name: 'AWS',
-    icon: AWS,
-    description: 'Cloud infrastructure and data processing.'
-  },
-  {
-    name: 'Docker',
-    icon: Docker,
-    description: 'Reproducible development and deployment environments.'
-  },
-  {
-    name: 'TypeScript',
-    icon: TypeScript,
-    description: 'Typed web applications and research tools.'
-  },
-  {
-    name: 'React',
-    icon: ReactJs,
-    description: 'Interactive interfaces and geospatial visualization.'
+    category: 'Web & visualization',
+    skills: ['React', 'Node.js', 'deck.gl', 'MapLibre']
   }
 ]
 
-export default techStacks
+export default techStackGroups

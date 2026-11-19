@@ -51,6 +51,40 @@ const publications = [
     doi: '10.3390/urbansci8040247'
   }
 ]
+
+const awards = [
+  {
+    date: '2026-03',
+    label: 'Mar 2026',
+    title: 'AAG John Odland Award Paper Competition — Finalist'
+  },
+  {
+    date: '2025-04',
+    label: 'Apr 2025',
+    title:
+      "Marble Fund Award for Innovative Master's Research — Honorable Mention"
+  },
+  {
+    date: '2023-10',
+    label: 'Oct 2023',
+    title: 'Oscar J. Marshall Graduate Scholarship'
+  },
+  {
+    date: '2023-03',
+    label: 'Mar 2023',
+    title: 'AAG GISS Graduate Student Paper Competition — Finalist'
+  },
+  {
+    date: '2023-02',
+    label: 'Feb 2023',
+    title: 'DLSPH/Esri Data Visualization Challenge — 2nd Place'
+  },
+  {
+    date: '2022-11',
+    label: 'Nov 2022',
+    title: 'UTM Mobility Network Graduate Research Award'
+  }
+]
 ---
 
 <section id='publications' aria-labelledby='publications-heading' class='pt-16'>
@@ -90,21 +124,26 @@ const publications = [
   </ol>
 </section>
 
-<section aria-labelledby='recognition-heading' class='pt-12'>
+<section id='awards' aria-labelledby='awards-heading' class='pt-12'>
   <h2
-    id='recognition-heading'
+    id='awards-heading'
     class='mb-6 text-2xl font-semibold text-theme-primary'
   >
-    Selected recognition
+    Awards & honors
   </h2>
-  <ul class='space-y-3 leading-relaxed text-theme-secondary'>
-    <li>
-      <span class='font-medium text-theme-primary'>2026</span> · AAG John Odland
-      Award Paper Competition — Finalist
-    </li>
-    <li>
-      <span class='font-medium text-theme-primary'>2025</span> · Marble Fund Award
-      for Innovative Master's Research — Honorable Mention
-    </li>
+  <ul class='space-y-4 leading-relaxed text-theme-secondary'>
+    {
+      awards.map(({ date, label, title }) => (
+        <li class='sm:grid sm:grid-cols-[6rem_1fr] sm:gap-4'>
+          <time
+            datetime={date}
+            class='block text-sm font-medium text-theme-primary'
+          >
+            {label}
+          </time>
+          <span>{title}</span>
+        </li>
+      ))
+    }
   </ul>
 </section>
